@@ -1,0 +1,415 @@
+/* ESTO DE ABAJO ES PARA FORMATEAR */
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+}
+
+html,
+body {
+      height: 100%;
+      font-family: "Inter", sans-serif;
+}
+
+ul,
+ol {
+      list-style: none;
+}
+
+a {
+      text-decoration: none;
+      color: inherit;
+}
+
+/* ESTO DE ARRIBA ES PARA FORMATEAR */
+
+.inter-<uniquifier> {
+      font-family: "Inter", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: <weight>;
+      font-style: normal;
+}
+
+body {
+      background-color: #F5F5F5;
+}
+
+.menu {
+      background-color: #CDB4F4;
+      display: flex;
+      list-style: none;
+      padding: 0px;
+      margin: auto;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      font-family: "Inter", sans-serif;
+
+
+      img {
+            width: 10%;
+            margin: 5px;
+
+      }
+
+      li a {
+            color: #2D2D2D;
+            text-decoration: none;
+            padding: 20px;
+            margin: 30px;
+      }
+
+      li {
+            display: inline-block;
+            text-align: center;
+      }
+
+      li a:hover {
+            background-color: #FF9AA2;
+      }
+
+}
+
+.emociones {
+      display: flex;
+      justify-content: space-around;
+      margin: 20px;
+
+}
+
+.emociones article {
+      width: 45%;
+}
+
+.registro_emocion {
+      background-color: #FFFFFF;
+      border-radius: 20px;
+      display: flex;
+      margin: 30px;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      min-height: 600px;
+      justify-content: space-between;
+      font-family: "Inter", sans-serif;
+
+
+
+      h1 {
+            font-size: 35px;
+            margin: 20px;
+            padding: 10px;
+
+      }
+
+      button {
+            background-color: #FF9AA2;
+            border: none;
+            border-radius: 10px;
+            padding: 6px;
+            margin: 30px;
+            font-size: 20px;
+            cursor: pointer;
+            width: 35%;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+
+
+      }
+
+      button:hover {
+            background-color: aqua;
+      }
+
+      .opciones_emociones {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            padding: 10px;
+            align-items: center;
+            width: 100%;
+
+            img {
+                  transition: transform 4s;
+                  cursor: pointer;
+
+            }
+      }
+
+      .opciones_emociones img:hover {
+            transform: rotate(15deg);
+
+      }
+
+      .opciones_emociones>div {
+
+            padding: 10px;
+            font-size: 17px;
+            text-align: center;
+      }
+
+}
+
+.emocion_diaria {
+      background-color: #FFFFFF;
+      border-radius: 20px;
+      display: flex;
+      margin: 30px;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      min-height: 600px;
+      font-family: "Inter", sans-serif;
+
+      h1 {
+
+            font-size: 35px;
+            margin: 20px;
+            padding: 10px;
+
+      }
+
+      p {
+
+            font-size: 20px;
+            margin: 20px;
+            padding: 10px;
+
+      }
+
+      img {
+            width: 50%;
+            margin: 10px;
+      }
+}
+
+footer {
+      background-color: #A8D8EA;
+      margin: 0px;
+      padding: 10px;
+      color: #2D2D2D;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      position: absolute;
+      bottom: 0;
+      font-family: "Inter", sans-serif;
+}
+
+.formularios_sesion {
+      background: #CDB4F4;
+      background: linear-gradient(187deg, rgba(205, 180, 244, 1) 0%, rgba(168, 216, 234, 1) 100%);
+      display: flex;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+}
+
+.iniciar_sesion {
+      background-color: #FFFFFF;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      border-radius: 20px;
+      display: flex;
+      padding: 20px;
+      flex-direction: column;
+      min-height: 500px;
+      min-width: 550px;
+      font-family: "Inter", sans-serif;
+
+
+      h1 {
+            font-size: 40px;
+      }
+
+      h2 {
+            font-size: 30px;
+      }
+
+      p {
+            font-size: 20px;
+            font-style: italic;
+      }
+}
+
+.titulo {
+      margin: 20px;
+      text-align: center;
+}
+
+.formulario {
+      margin: 20px;
+      padding: 20px;
+      justify-content: space-between;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+}
+
+.formulario input {
+      margin: 5px;
+      border-radius: 4px;
+      height: 30px;
+      padding: 10px;
+      border: solid 2px #7D7D7D;
+      font-size: 15px;
+}
+
+.formulario label {
+      font-size: 20px;
+}
+
+.submit {
+      margin-top: 45px;
+      padding: 15px;
+      border-radius: 20px;
+      background-color: #FF9AA2;
+      align-self: center;
+      border: none;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 35%;
+}
+
+.submit:hover {
+      background-color: #A8D8EA;
+}
+
+.herramientas {
+      background: #CDB4F4;
+      background: linear-gradient(187deg, rgba(205, 180, 244, 1) 0%, rgba(168, 216, 234, 1) 100%);
+      display: flex;
+      width: 100%;
+      height: 100%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: "Inter", sans-serif;
+
+      img {
+            width: 10%;
+            margin: 5px;
+      }
+
+      h1 {
+            font-size: 50px;
+            margin: 5px;
+      }
+
+      p {
+            font-size: 20px;
+            padding: 20px;
+      }
+
+      button {
+            background-color: #FF9AA2;
+            border: none;
+            border-radius: 10px;
+            padding: 6px;
+            margin: 15px;
+            font-size: 20px;
+            cursor: pointer;
+            width: 15%;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+      }
+
+      button:hover {
+            background-color: #CDB4F4;
+      }
+}
+
+.contenidos_herramientas {
+      background-color: #A8D8EA;
+      justify-content: space-between;
+      display: flex;
+      padding-left: 50px;
+      padding-right: 50px;
+      font-family: "Inter", sans-serif;
+
+      article {
+            background-color: #FFFFFF;
+            display: flex;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 20px;
+            margin: 40px;
+            max-width: 25%;
+            min-height: 380px;
+
+            img {
+                  width: 100%;
+                  border-radius: 20px 20px 0px 0px;
+
+            }
+
+            h1 {
+                  font-size: 28px;
+                  color: #FF9AA2;
+            }
+
+            p {
+                  font-size: 20px;
+            }
+
+            a {
+                  color: #FF9AA2;
+                  font-size: 20px;
+            }
+
+            div {
+                  padding: 20px;
+            }
+      }
+}
+
+.blog {
+      display: flex;
+      flex-direction: column;
+      font-family: "Inter", sans-serif;
+      background: #CDB4F4;
+      background: linear-gradient(187deg, rgba(205, 180, 244, 1) 0%, rgba(168, 216, 234, 1) 100%);
+
+      img {
+            width: 50%;
+            margin: 20px;
+            align-self: center;
+      }
+
+      h1 {
+            font-size: 40px;
+      }
+
+      h2 {
+            font-size: 25px;
+      }
+      p{
+            font-size: 20px;
+      }
+
+}
+
+.titulo_blog{
+      padding: 20px;
+}
+.contenido_blog{
+      padding: 20px;
+}
+
+
+/* <style> :root {
+      --rosa: #F7C6D9;
+      --celeste: #A8D8EA;
+      --amarillo: #FFF5A5;
+      --menta: #C2F0C2;
+      --lavanda: #CDB4F4;
+      --blanco: #FFFFFF;
+      --gris-claro: #F5F5F5;
+      --gris-medio: #7D7D7D;
+      --negro: #2D2D2D;
+      --coral: #FF9AA2;
+      --turquesa: #00C2BA;
+}
+
+</style> */
