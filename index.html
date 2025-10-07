@@ -19,60 +19,71 @@
 </head>
 
 <body>
-  <header>
-    <div class="menu">
-      <img src="/assets/logo.png" alt="Sentio">
-      <ul>
-        <li><a href="index.html">Registro diario</a></li>
-        <li><a href="calendario.html">Mi calendario</a></li>
-        <li><a href="herramientas.html">Herramientas</a></li>
-        <li><a href="formulario_iniciar_sesion.html">Iniciar sesión</a></li>
-      </ul>
-    </div>
-  </header>
+    <header>
+        <div class="menu">
+            <a href="index.html" class="logo-link"><img src="/assets/logo.png" alt="Logo de Sentio"></a>
+            
+            <nav id="nav-menu" class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html">Registro diario</a></li>
+                    <li><a href="calendario.html">Mi calendario</a></li>
+                    <li><a href="herramientas.html">Herramientas</a></li>
+                    <li><a href="formulario_iniciar_sesion.html">Iniciar sesión</a></li>
+                </ul>
+            </nav>
 
-  <section class="emociones">
-    <article>
-      <div class="emocion_diaria">
-        <h1>Hoy te sentiste...</h1>
-        <img src="/assets/Recurso 11.png" alt="Tu">
-        <p>Recuerda los días grises son una oportunidad de empezar de nuevo</p>
-      </div>
-    </article>
-    <article>
-      <div class="registro_emocion">
-        <h1>¿Cómo te sientes hoy?</h1>
-        <div class="opciones_emociones">
-          <div>
-            <img src="/assets/Recurso 1.png" alt="feliz">
-            <p>Feliz</p>
-          </div>
-          <div><img src="/assets/Recurso 2.png" alt="enojado">
-            <p>Enojado</p>
-          </div>
-          <div><img src="/assets/Recurso 7.png" alt="motivado">
-            <p>Motivado</p>
-          </div>
-          <div><img src="/assets/Recurso 12.png" alt="triste">
-            <p>Triste</p>
-          </div>
-          <div><img src="/assets/Recurso 13.png" alt="calmado">
-            <p>Calmado</p>
-          </div>
-          <div><img src="/assets/Recurso 14.png" alt="preocupado">
-            <p>Preocupado</p>
-          </div>
+            <button id="burger-button" class="burger-menu" aria-label="Abrir menú">
+                <span class="burger-bar"></span>
+                <span class="burger-bar"></span>
+                <span class="burger-bar"></span>
+            </button>
         </div>
+    </header>
 
-        <button>Registrar emoción</button>
-      </div>
-  </section>
+    <main class="emociones">
+        <article>
+            <div class="emocion_diaria">
+                <h1>Hoy te sentiste...</h1>
+                <img src="/assets/munequito.png" alt="Ilustración de una persona meditando">
+                <p>Recuerda los días grises son una oportunidad de empezar de nuevo</p>
+            </div>
+        </article> <article>
+            <div class="registro_emocion">
+                <h2>¿Cómo te sientes hoy?</h2> <div class="opciones_emociones">
+                    <div>
+                        <img src="/assets/feliz_carita.png" alt="feliz">
+                        <p>Feliz</p>
+                    </div>
+                    <div>
+                        <img src="/assets/enojado_carita.png" alt="enojado">
+                        <p>Enojado</p>
+                    </div>
+                    <div>
+                        <img src="/assets/motivado_carita.png" alt="motivado">
+                        <p>Motivado</p>
+                    </div>
+                    <div>
+                        <img src="/assets/triste_carita.png" alt="triste">
+                        <p>Triste</p>
+                    </div>
+                    <div>
+                        <img src="/assets/calmado_carita.png" alt="calmado">
+                        <p>Calmado</p>
+                    </div>
+                    <div>
+                        <img src="/assets/preocupado_carita.png" alt="preocupado">
+                        <p>Preocupado</p>
+                    </div>
+                </div>
 
-  <footer>
-    <p>No estas solo</p>
-    <a href="#" style="color: #FF9AA2; cursor: pointer;">Si necesitas ayuda apreta aquí</a>
-  </footer>
-
+                <button type="button">Registrar emoción</button>
+            </div>
+        </article>
+    </main> 
+    <footer>
+      <p>No estas solo</p>
+      <a href="#" style="color: #FF9AA2; cursor: pointer;">Si necesitas ayuda apreta aquí</a>
+    </footer>
+    <script src="scripts.js"></script>
 </body>
-
 </html>

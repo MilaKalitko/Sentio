@@ -23,163 +23,154 @@ a {
 
 /* ESTO DE ARRIBA ES PARA FORMATEAR */
 
-.inter-<uniquifier> {
-      font-family: "Inter", sans-serif;
-      font-optical-sizing: auto;
-      font-weight: <weight>;
-      font-style: normal;
+/* --- Estilos Generales y Tipografía --- */
+body {
+    background-color: #F5F5F5;
+    font-family: "Inter", sans-serif;
+    margin: 0;
 }
 
-body {
-      background-color: #F5F5F5;
+/* --- Encabezado y Menú de Navegación --- */
+header {
+    /* Nueva regla: Contenedor del header para controlar la altura */
+    height: 60px; /* Define una altura fija para el header */
+    display: flex;
+    align-items: center; /* Centra verticalmente el contenido */
 }
 
 .menu {
-      background-color: #CDB4F4;
-      display: flex;
-      list-style: none;
-      padding: 0px;
-      margin: auto;
-      width: 100%;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-      font-family: "Inter", sans-serif;
-
-
-      img {
-            width: 10%;
-            margin: 5px;
-
-      }
-
-      li a {
-            color: #2D2D2D;
-            text-decoration: none;
-            padding: 20px;
-            margin: 30px;
-      }
-
-      li {
-            display: inline-block;
-            text-align: center;
-      }
-
-      li a:hover {
-            background-color: #FF9AA2;
-      }
-
+    background-color: #CDB4F4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; /* Quitamos el padding vertical para que 'header' controle la altura */
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    width: 100%; /* Asegura que el menú ocupe todo el ancho */
+    height: 100%; /* El menú toma la altura de su padre (header) */
 }
 
-.emociones {
-      display: flex;
-      justify-content: space-around;
-      margin: 20px;
-
+.menu img {
+    width: 100px;
+    height: auto;
 }
 
-.emociones article {
-      width: 45%;
+.menu nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
 }
 
+.menu nav a {
+    color: #2D2D2D;
+    text-decoration: none;
+    padding: 0 20px; /* Solo padding horizontal, vertical lo controla el header */
+    display: flex; /* Usamos flexbox para centrar el texto verticalmente */
+    align-items: center; /* Centra el texto verticalmente dentro del enlace */
+    height: 100%; /* El enlace ocupa toda la altura disponible */
+}
+
+.menu nav a:hover {
+    background-color: #FF9AA2;
+    border-radius: 8px;
+}
+
+/* --- Contenido Principal --- */
+main.emociones {
+    display: flex;
+    justify-content: center; /* Cambiado a center para un espaciado más simétrico */
+    align-items: stretch; /* ESTO ES CLAVE: Hace que todas las columnas tengan la misma altura */
+    padding: 20px;
+    gap: 30px; /* Aumentamos un poco el gap para que no se vea pegado */
+}
+
+main.emociones article {
+    width: 45%; /* Ajuste de ancho para el gap */
+}
+
+/* Estilos comunes para ambas cajas de artículo */
+.emocion_diaria,
 .registro_emocion {
-      background-color: #FFFFFF;
-      border-radius: 20px;
-      display: flex;
-      margin: 30px;
-      flex-direction: column;
-      align-items: center;
-      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-      min-height: 600px;
-      justify-content: space-between;
-      font-family: "Inter", sans-serif;
-
-
-
-      h1 {
-            font-size: 35px;
-            margin: 20px;
-            padding: 10px;
-
-      }
-
-      button {
-            background-color: #FF9AA2;
-            border: none;
-            border-radius: 10px;
-            padding: 6px;
-            margin: 30px;
-            font-size: 20px;
-            cursor: pointer;
-            width: 35%;
-            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-
-
-      }
-
-      button:hover {
-            background-color: aqua;
-      }
-
-      .opciones_emociones {
-            display: grid;
-            grid-template-columns: auto auto auto;
-            padding: 10px;
-            align-items: center;
-            width: 100%;
-
-            img {
-                  transition: transform 4s;
-                  cursor: pointer;
-
-            }
-      }
-
-      .opciones_emociones img:hover {
-            transform: rotate(15deg);
-
-      }
-
-      .opciones_emociones>div {
-
-            padding: 10px;
-            font-size: 17px;
-            text-align: center;
-      }
-
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    /* min-height: 600px;  <-- Quitamos el min-height, ahora 'stretch' lo maneja */
+    padding: 20px;
+    box-sizing: border-box;
 }
 
+/* Estilos específicos para la caja de la izquierda */
 .emocion_diaria {
-      background-color: #FFFFFF;
-      border-radius: 20px;
-      display: flex;
-      margin: 30px;
-      flex-direction: column;
-      align-items: center;
-      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-      min-height: 600px;
-      font-family: "Inter", sans-serif;
+    justify-content: center;
+}
 
-      h1 {
+.emocion_diaria h1,
+.registro_emocion h2 {
+    font-size: 35px;
+    margin-top: 0;
+    text-align: center;
+}
 
-            font-size: 35px;
-            margin: 20px;
-            padding: 10px;
+.emocion_diaria p {
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+}
 
-      }
+.emocion_diaria img {
+    width: 50%;
+    max-width: 250px; /* Limita el tamaño máximo del muñeco */
+    margin: 10px;
+}
 
-      p {
+/* Estilos específicos para la caja de la derecha (registro) */
+.registro_emocion {
+    justify-content: space-between;
+}
 
-            font-size: 20px;
-            margin: 20px;
-            padding: 10px;
+.opciones_emociones {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px; /* Reducimos el gap para que las caritas sean más pequeñas */
+    width: 100%;
+    padding: 10px;
+}
 
-      }
+.opciones_emociones > div {
+    text-align: center;
+    font-size: 15px; /* Reducimos el tamaño de la fuente de los textos */
+}
 
-      img {
-            width: 50%;
-            margin: 10px;
-      }
+.opciones_emociones img {
+    width: 70%; /* Hacemos las caritas un poco más chicas */
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin: 0 auto 5px auto; /* Centra la imagen y da un pequeño margen abajo */
+    display: block; /* Para que el margin auto horizontal funcione */
+}
+
+.opciones_emociones img:hover {
+    transform: rotate(15deg) scale(1.05); /* Escala un poco menos para que no se salgan tanto */
+}
+
+.registro_emocion button {
+    background-color: #FF9AA2;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    width: 40%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+.registro_emocion button:hover {
+    background-color: #84E6E6;
 }
 
 footer {
@@ -276,127 +267,253 @@ footer {
       background-color: #A8D8EA;
 }
 
-.herramientas {
-      background: #CDB4F4;
-      background: linear-gradient(187deg, rgba(205, 180, 244, 1) 0%, rgba(168, 216, 234, 1) 100%);
-      display: flex;
-      width: 100%;
-      height: 100%;
-      flex-direction: column;
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    padding: 2rem;
+    background: linear-gradient(170deg, #d3c4f8 0%, #a8d8ea 100%);
+    position: relative;
+    overflow: hidden;
+}
+.hero img {
+      width: 15%;
+      /* margin: 5px; */
+}
+
+.hero-content {
+      z-index: 10; /* Se asegura de que el texto siempre esté al frente */
       align-items: center;
       justify-content: center;
-      font-family: "Inter", sans-serif;
-
-      img {
-            width: 10%;
-            margin: 5px;
-      }
-
-      h1 {
-            font-size: 50px;
-            margin: 5px;
-      }
-
-      p {
-            font-size: 20px;
-            padding: 20px;
-      }
-
-      button {
-            background-color: #FF9AA2;
-            border: none;
-            border-radius: 10px;
-            padding: 6px;
-            margin: 15px;
-            font-size: 20px;
-            cursor: pointer;
-            width: 15%;
-            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-      }
-
-      button:hover {
-            background-color: #CDB4F4;
-      }
+      margin-bottom: 50px;
 }
 
-.contenidos_herramientas {
-      background-color: #A8D8EA;
-      justify-content: space-between;
-      display: flex;
-      padding-left: 50px;
-      padding-right: 50px;
-      font-family: "Inter", sans-serif;
-
-      article {
-            background-color: #FFFFFF;
-            display: flex;
-            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-            align-items: center;
-            flex-direction: column;
-            border-radius: 20px;
-            margin: 40px;
-            max-width: 25%;
-            min-height: 380px;
-
-            img {
-                  width: 100%;
-                  border-radius: 20px 20px 0px 0px;
-
-            }
-
-            h1 {
-                  font-size: 28px;
-                  color: #FF9AA2;
-            }
-
-            p {
-                  font-size: 20px;
-            }
-
-            a {
-                  color: #FF9AA2;
-                  font-size: 20px;
-            }
-
-            div {
-                  padding: 20px;
-            }
-      }
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
 }
 
-.blog {
-      display: flex;
-      flex-direction: column;
-      font-family: "Inter", sans-serif;
-      background: #CDB4F4;
-      background: linear-gradient(187deg, rgba(205, 180, 244, 1) 0%, rgba(168, 216, 234, 1) 100%);
-
-      img {
-            width: 50%;
-            margin: 20px;
-            align-self: center;
-      }
-
-      h1 {
-            font-size: 40px;
-      }
-
-      h2 {
-            font-size: 25px;
-      }
-      p{
-            font-size: 20px;
-      }
-
+.hero-content p {
+    font-size: 1.25rem;
+    /* max-width: 600px; */
+    margin-bottom: 2rem;
 }
 
-.titulo_blog{
-      padding: 20px;
-}
-.contenido_blog{
-      padding: 20px;
+.btn-explorar {
+    background-color: #FF9AA2;
+    color: #2D2D2D;
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
+.btn-explorar:hover {
+    transform: scale(1.05);
+}
+
+/* --- Sección de Posts --- */
+.posts-section {
+    padding: 80px 20px;
+    text-align: center;
+    /* Damos una altura mínima para que las tarjetas tengan donde "aterrizar" */
+    min-height: 100vh; 
+}
+
+.posts-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #2D2D2D;
+}
+
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Este contenedor necesita ser relativo para el z-index */
+    position: relative; 
+    z-index: 5;
+}
+
+
+/* --- Tarjeta de Post (Con estados de animación) --- */
+.post-card {
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-align: left;
+    overflow: hidden;
+    
+    /* Propiedad clave para una animación suave */
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* --- ESTADO INICIAL (FLOTANDO EN EL HERO) --- */
+    position: absolute;
+    width: 300px;
+    height: 400px;
+    /* CORRECCIÓN: Las tarjetas empiezan más arriba, visibles en la pantalla */
+    bottom: 0px; 
+    left: calc(50% - 150px);
+}
+
+/* Posición específica de cada tarjeta para coincidir con Figma */
+.post-card:nth-child(1) {
+    background-color: #F7C6D9; /* rosa */
+    transform: translateX(-160px) rotate(-15deg);
+    z-index: 2;
+}
+.post-card:nth-child(2) {
+    background-color: #C2F0C2; /* menta */
+    transform: translateY(-40px);
+    z-index: 3; /* La del medio está por encima */
+}
+.post-card:nth-child(3) {
+    background-color: #A8D8EA; /* celeste */
+    transform: translateX(160px) rotate(15deg);
+    z-index: 1;
+}
+
+/* Ocultamos el contenido de la tarjeta en el estado inicial */
+.post-card .post-content, .post-card .post-image {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+
+/* --- ESTADO FINAL (EN LA GRILLA, CUANDO SE HACE SCROLL) --- */
+.posts-section.scrolled .post-card {
+    position: static; /* <-- La magia ocurre aquí: la tarjeta "aterriza" en la grilla */
+    transform: translateX(0) rotate(0) translateY(0); /* Reseteamos todas las transformaciones */
+    height: auto;
+    width: auto;
+    background-color: #FFFFFF; /* Vuelven a su color de fondo original */
+}
+
+/* Hacemos visible el contenido de la tarjeta en el estado final */
+.posts-section.scrolled .post-card .post-content,
+.posts-section.scrolled .post-card .post-image {
+    opacity: 1;
+}
+
+/* Estilos del contenido interno de la tarjeta (no cambian) */
+.post-card .post-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.post-card .post-content {
+    padding: 25px;
+}
+
+.post-card .post-date {
+    font-size: 0.8rem;
+    color: #7D7D7D;
+    margin-bottom: 10px;
+}
+
+.post-card .post-description {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.post-card .btn-ver-mas {
+    background-color: #CDB4F4;
+    color: #2D2D2D;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+/* --- ESTILOS PARA MENÚ RESPONSIVE (HAMBURGUESA) --- */
+
+/* --- Botón de Hamburguesa --- */
+.burger-menu {
+    display: none; /* Oculto por defecto en pantallas grandes */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001; /* Siempre visible por encima del menú desplegable */
+}
+
+.burger-bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #2D2D2D;
+    margin: 5px 0;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Estilos para la animación de la hamburguesa a una 'X' */
+.burger-menu.active .burger-bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.burger-menu.active .burger-bar:nth-child(2) {
+    opacity: 0;
+}
+.burger-menu.active .burger-bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* --- Media Query: Estilos que se aplican solo en pantallas pequeñas --- */
+@media (max-width: 768px) {
+
+    .burger-menu {
+        display: block; /* Hacemos visible el botón de hamburguesa */
+    }
+
+    .nav {
+        /* Menú desplegable oculto por defecto */
+        position: fixed;
+        top: 0;
+        right: -100%; /* Empieza fuera de la pantalla a la derecha */
+        width: 70%;
+        height: 100vh;
+        background-color: rgba(205, 180, 244, 0.95); /* Color del menú con transparencia */
+        backdrop-filter: blur(5px);
+        padding-top: 80px; /* Espacio para que no choque con el header */
+        transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        z-index: 1000;
+    }
+    
+    /* .nav::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.2);
+        z-index: -1;
+    } */
+
+    .nav.active {
+        right: 0; /* Menú se desliza a la vista */
+    }
+
+    .nav-list {
+        flex-direction: column; /* Apila los enlaces verticalmente */
+        align-items: center;
+        gap: 20px;
+    }
+
+    .nav-list a {
+        font-size: 1.2rem; /* Letra más grande para mejor legibilidad en mobile */
+        padding: 15px;
+        width: 100%;
+        text-align: center;
+    }
+}
 
 /* <style> :root {
       --rosa: #F7C6D9;

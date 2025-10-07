@@ -1,75 +1,52 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="description" content="Sentir esta bien">
-      <meta name="author" content="Milani Kalitko">
-      <link rel="stylesheet" href="styless.css"> <!-- Link a estilos -->
-      <title>Herramientas</title>
-      <link rel="icon" href="./assets/icono.ico">
-
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-            rel="stylesheet">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styless.css">
+    <link rel="icon" href="./assets/icono.ico">
+    <title>Herramientas</title>
 </head>
-
 <body>
-      <header>
-            <div class="menu">
-                  <img src="/assets/logo.png" alt="Sentio">
-                  <ul>
-                        <li><a href="index.html">Registro diario</a></li>
-                        <li><a href="calendario.html">Mi calendario</a></li>
-                        <li><a href="herramientas.html">Herramientas</a></li>
-                        <li><a href="formulario_iniciar_sesion.html">Iniciar sesión</a></li>
-                  </ul>
+    <header>
+        <div class="menu">
+            <a href="index.html" class="logo-link"><img src="/assets/logo.png" alt="Logo de Sentio"></a>
+            
+            <nav id="nav-menu" class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html">Registro diario</a></li>
+                    <li><a href="calendario.html">Mi calendario</a></li>
+                    <li><a href="herramientas.html">Herramientas</a></li>
+                    <li><a href="formulario_iniciar_sesion.html">Iniciar sesión</a></li>
+                </ul>
+            </nav>
+
+            <button id="burger-button" class="burger-menu" aria-label="Abrir menú">
+                <span class="burger-bar"></span>
+                <span class="burger-bar"></span>
+                <span class="burger-bar"></span>
+            </button>
+        </div>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <img src="/assets/logo.png" alt="Sentio">
+                <h1>TU BIENESTAR IMPORTA</h1>
+                <p>Por eso creamos este espacio con recursos pensados especialmente para ti.</p>
+                <a href="#posts" class="btn-explorar">Explorar ahora</a>
             </div>
-      </header>
+            </section>
 
-      <section class="herramientas">
-            <img src="/assets/logo.png" alt="Sentio">
-            <h1>TU BIENESTAR IMPORTA</h1>
-            <P>Por eso creamos este espacio con recursos pensados especialmente para ti.</P>
-            </div>
-            <button>explorar ahora</button>
-      </section>
+        <section id="posts" class="posts-section">
+            <h2>Últimos artículos</h2>
+            <div class="posts-grid">
+                </div>
+        </section>
+    </main>
 
-      <section class="contenidos_herramientas">
-            <article>
-
-                  <img src="/assets/dormirbien.jpg" alt="Descansar">
-                  <div>
-                        <h1>¿Por qué es importante dormir bien?</h1>
-                        <p>Descubre porqué es tan importante el correcto descanso para nuestra salud mental y como
-                              conseguirlo
-                        </p>
-                        <a href="herramienta.html">Leer más</a>
-                  </div>
-            </article>
-            <article>
-                  <img src="/assets/estres.jpg" alt="Estres">
-                  <div>
-                        <h1>¿Qué es el estrés?</h1>
-                        <p>Descubre que es realmente el estres y como tu cuerpo reacciona ante el</p>
-                        <a href="herramienta.html">Leer más</a>
-                  </div>
-            </article>
-            <article>
-
-                  <img src="/assets/ansiedad.jpg" alt="Mente no para">
-                  <div>
-                        <h1>¿Tu mente no para?</h1>
-                        <p>¿Tu mente no para y sientes que vas explotar? Prueba estas tecnicas</p>
-                        <a href="herramienta.html">Leer más</a>
-                  </div>
-            </article>
-      </section>
-
-
+    <script src="postsData.js"></script>
+    <script src="scripts.js"></script>
 </body>
-
 </html>
