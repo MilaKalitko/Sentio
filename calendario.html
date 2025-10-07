@@ -13,16 +13,25 @@
 
 <body>
       <header>
-            <div class="menu">
-                  <img src="/mapa de emociones/recursos/logo.png" alt="Sentio">
-                  <ul>
-                        <li><a href="index.html">Registro diario</a></li>
-                        <li><a href="calendario.html">Mi calendario</a></li>
-                        <li><a href="herramientas.html">Herramientas</a></li>
-                        <li><a href="formulario_iniciar_sesion.html">Iniciar sesión</a></li>
-                  </ul>
-            </div>
-      </header>
+        <div class="menu">
+            <a href="index.html" class="logo-link"><img src="/assets/logo.png" alt="Logo de Sentio"></a>
+            
+            <nav id="nav-menu" class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html">Registro diario</a></li>
+                    <li><a href="calendario.html">Mi calendario</a></li>
+                    <li><a href="herramientas.html">Herramientas</a></li>
+                    <li><a href="formulario_iniciar_sesion.html">Iniciar sesión</a></li>
+                </ul>
+            </nav>
+
+            <button id="burger-button" class="burger-menu" aria-label="Abrir menú">
+                <span class="burger-bar"></span>
+                <span class="burger-bar"></span>
+                <span class="burger-bar"></span>
+            </button>
+        </div>
+    </header>
 
       <section class="Calendario">
 
@@ -47,7 +56,7 @@
             <p>No estas solo</p>
             <p href="#" style="color: #FF9AA2; cursor: pointer;">Si necesitas ayuda apreta aquí</p>
       </footer>
-
+      <script src="scripts.js"></script>
 </body>
 
 </html>

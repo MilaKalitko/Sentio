@@ -23,19 +23,19 @@ a {
 
 /* ESTO DE ARRIBA ES PARA FORMATEAR */
 
-/* --- Estilos Generales y Tipografía --- */
+
 body {
     background-color: #F5F5F5;
     font-family: "Inter", sans-serif;
     margin: 0;
 }
 
-/* --- Encabezado y Menú de Navegación --- */
+
 header {
-    /* Nueva regla: Contenedor del header para controlar la altura */
-    height: 60px; /* Define una altura fija para el header */
+    
+    height: 60px; 
     display: flex;
-    align-items: center; /* Centra verticalmente el contenido */
+    align-items: center; 
 }
 
 .menu {
@@ -43,10 +43,10 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px; /* Quitamos el padding vertical para que 'header' controle la altura */
+    padding: 0 20px; 
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    width: 100%; /* Asegura que el menú ocupe todo el ancho */
-    height: 100%; /* El menú toma la altura de su padre (header) */
+    width: 100%; 
+    height: 100%; 
 }
 
 .menu img {
@@ -64,10 +64,10 @@ header {
 .menu nav a {
     color: #2D2D2D;
     text-decoration: none;
-    padding: 0 20px; /* Solo padding horizontal, vertical lo controla el header */
-    display: flex; /* Usamos flexbox para centrar el texto verticalmente */
-    align-items: center; /* Centra el texto verticalmente dentro del enlace */
-    height: 100%; /* El enlace ocupa toda la altura disponible */
+    padding: 0 20px; 
+    display: flex; 
+    align-items: center; 
+    height: 100%; 
 }
 
 .menu nav a:hover {
@@ -75,20 +75,19 @@ header {
     border-radius: 8px;
 }
 
-/* --- Contenido Principal --- */
+
 main.emociones {
     display: flex;
-    justify-content: center; /* Cambiado a center para un espaciado más simétrico */
-    align-items: stretch; /* ESTO ES CLAVE: Hace que todas las columnas tengan la misma altura */
+    justify-content: center; 
+    align-items: stretch; 
     padding: 20px;
-    gap: 30px; /* Aumentamos un poco el gap para que no se vea pegado */
+    gap: 30px; 
 }
 
 main.emociones article {
-    width: 45%; /* Ajuste de ancho para el gap */
+    width: 45%; 
 }
 
-/* Estilos comunes para ambas cajas de artículo */
 .emocion_diaria,
 .registro_emocion {
     background-color: #FFFFFF;
@@ -97,12 +96,11 @@ main.emociones article {
     flex-direction: column;
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    /* min-height: 600px;  <-- Quitamos el min-height, ahora 'stretch' lo maneja */
     padding: 20px;
     box-sizing: border-box;
 }
 
-/* Estilos específicos para la caja de la izquierda */
+
 .emocion_diaria {
     justify-content: center;
 }
@@ -122,11 +120,10 @@ main.emociones article {
 
 .emocion_diaria img {
     width: 50%;
-    max-width: 250px; /* Limita el tamaño máximo del muñeco */
+    max-width: 250px; 
     margin: 10px;
 }
 
-/* Estilos específicos para la caja de la derecha (registro) */
 .registro_emocion {
     justify-content: space-between;
 }
@@ -134,27 +131,27 @@ main.emociones article {
 .opciones_emociones {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px; /* Reducimos el gap para que las caritas sean más pequeñas */
+    gap: 10px; 
     width: 100%;
     padding: 10px;
 }
 
 .opciones_emociones > div {
     text-align: center;
-    font-size: 15px; /* Reducimos el tamaño de la fuente de los textos */
+    font-size: 15px; 
 }
 
 .opciones_emociones img {
-    width: 70%; /* Hacemos las caritas un poco más chicas */
+    width: 70%; 
     height: auto;
     cursor: pointer;
     transition: transform 0.3s ease;
-    margin: 0 auto 5px auto; /* Centra la imagen y da un pequeño margen abajo */
-    display: block; /* Para que el margin auto horizontal funcione */
+    margin: 0 auto 5px auto; 
+    display: block; 
 }
 
 .opciones_emociones img:hover {
-    transform: rotate(15deg) scale(1.05); /* Escala un poco menos para que no se salgan tanto */
+    transform: rotate(15deg) scale(1.05); 
 }
 
 .registro_emocion button {
@@ -281,11 +278,10 @@ footer {
 }
 .hero img {
       width: 15%;
-      /* margin: 5px; */
 }
 
 .hero-content {
-      z-index: 10; /* Se asegura de que el texto siempre esté al frente */
+      z-index: 10; 
       align-items: center;
       justify-content: center;
       margin-bottom: 50px;
@@ -318,11 +314,9 @@ footer {
     transform: scale(1.05);
 }
 
-/* --- Sección de Posts --- */
 .posts-section {
     padding: 80px 20px;
     text-align: center;
-    /* Damos una altura mínima para que las tarjetas tengan donde "aterrizar" */
     min-height: 100vh; 
 }
 
@@ -338,13 +332,10 @@ footer {
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
-    /* Este contenedor necesita ser relativo para el z-index */
     position: relative; 
     z-index: 5;
 }
 
-
-/* --- Tarjeta de Post (Con estados de animación) --- */
 .post-card {
     background-color: #FFFFFF;
     border-radius: 20px;
@@ -352,58 +343,51 @@ footer {
     text-align: left;
     overflow: hidden;
     
-    /* Propiedad clave para una animación suave */
+
     transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-    /* --- ESTADO INICIAL (FLOTANDO EN EL HERO) --- */
     position: absolute;
     width: 300px;
     height: 400px;
-    /* CORRECCIÓN: Las tarjetas empiezan más arriba, visibles en la pantalla */
     bottom: 0px; 
     left: calc(50% - 150px);
 }
 
-/* Posición específica de cada tarjeta para coincidir con Figma */
 .post-card:nth-child(1) {
-    background-color: #F7C6D9; /* rosa */
+    background-color: #F7C6D9; 
     transform: translateX(-160px) rotate(-15deg);
     z-index: 2;
 }
 .post-card:nth-child(2) {
-    background-color: #C2F0C2; /* menta */
+    background-color: #C2F0C2; 
     transform: translateY(-40px);
-    z-index: 3; /* La del medio está por encima */
+    z-index: 3; 
 }
 .post-card:nth-child(3) {
-    background-color: #A8D8EA; /* celeste */
+    background-color: #A8D8EA; 
     transform: translateX(160px) rotate(15deg);
     z-index: 1;
 }
 
-/* Ocultamos el contenido de la tarjeta en el estado inicial */
 .post-card .post-content, .post-card .post-image {
     opacity: 0;
     transition: opacity 0.5s ease;
 }
 
 
-/* --- ESTADO FINAL (EN LA GRILLA, CUANDO SE HACE SCROLL) --- */
 .posts-section.scrolled .post-card {
-    position: static; /* <-- La magia ocurre aquí: la tarjeta "aterriza" en la grilla */
-    transform: translateX(0) rotate(0) translateY(0); /* Reseteamos todas las transformaciones */
+    position: static; 
+    transform: translateX(0) rotate(0) translateY(0); 
     height: auto;
     width: auto;
-    background-color: #FFFFFF; /* Vuelven a su color de fondo original */
+    background-color: #FFFFFF; 
 }
 
-/* Hacemos visible el contenido de la tarjeta en el estado final */
 .posts-section.scrolled .post-card .post-content,
 .posts-section.scrolled .post-card .post-image {
     opacity: 1;
 }
 
-/* Estilos del contenido interno de la tarjeta (no cambian) */
 .post-card .post-image {
     width: 100%;
     height: 200px;
@@ -435,16 +419,13 @@ footer {
     display: inline-block;
 }
 
-/* --- ESTILOS PARA MENÚ RESPONSIVE (HAMBURGUESA) --- */
-
-/* --- Botón de Hamburguesa --- */
 .burger-menu {
-    display: none; /* Oculto por defecto en pantallas grandes */
+    display: none; 
     background: transparent;
     border: none;
     cursor: pointer;
     padding: 0;
-    z-index: 1001; /* Siempre visible por encima del menú desplegable */
+    z-index: 1001; 
 }
 
 .burger-bar {
@@ -456,7 +437,6 @@ footer {
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-/* Estilos para la animación de la hamburguesa a una 'X' */
 .burger-menu.active .burger-bar:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
 }
@@ -467,24 +447,22 @@ footer {
     transform: translateY(-8px) rotate(-45deg);
 }
 
-
-/* --- Media Query: Estilos que se aplican solo en pantallas pequeñas --- */
 @media (max-width: 768px) {
 
     .burger-menu {
-        display: block; /* Hacemos visible el botón de hamburguesa */
+        display: block; 
     }
 
     .nav {
         /* Menú desplegable oculto por defecto */
         position: fixed;
         top: 0;
-        right: -100%; /* Empieza fuera de la pantalla a la derecha */
+        right: -100%; 
         width: 70%;
         height: 100vh;
-        background-color: rgba(205, 180, 244, 0.95); /* Color del menú con transparencia */
+        background-color: rgba(205, 180, 244, 0.95); 
         backdrop-filter: blur(5px);
-        padding-top: 80px; /* Espacio para que no choque con el header */
+        padding-top: 80px; 
         transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
         z-index: 1000;
     }
@@ -498,17 +476,17 @@ footer {
     } */
 
     .nav.active {
-        right: 0; /* Menú se desliza a la vista */
+        right: 0; 
     }
 
     .nav-list {
-        flex-direction: column; /* Apila los enlaces verticalmente */
+        flex-direction: column; 
         align-items: center;
         gap: 20px;
     }
 
     .nav-list a {
-        font-size: 1.2rem; /* Letra más grande para mejor legibilidad en mobile */
+        font-size: 1.2rem; 
         padding: 15px;
         width: 100%;
         text-align: center;
