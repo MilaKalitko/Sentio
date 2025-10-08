@@ -1,24 +1,25 @@
 /* ESTO DE ABAJO ES PARA FORMATEAR */
 * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html,
 body {
-      height: 100%;
-      font-family: "Inter", sans-serif;
+    height: 100%;
+    font-family: "Inter", sans-serif;
+    margin: 0;
 }
 
 ul,
 ol {
-      list-style: none;
+    list-style: none;
 }
 
 a {
-      text-decoration: none;
-      color: inherit;
+    text-decoration: none;
+    color: inherit;
 }
 
 /* ESTO DE ARRIBA ES PARA FORMATEAR */
@@ -27,15 +28,18 @@ a {
 body {
     background-color: #F5F5F5;
     font-family: "Inter", sans-serif;
-    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
 }
 
 
 header {
-    
-    height: 60px; 
+
+    height: 60px;
     display: flex;
-    align-items: center; 
+    align-items: center;
 }
 
 .menu {
@@ -43,10 +47,12 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px; 
+    padding: 0 20px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    height: 60px;
+    flex-shrink: 0; 
     width: 100%; 
-    height: 100%; 
+    z-index: 100;
 }
 
 .menu img {
@@ -64,10 +70,10 @@ header {
 .menu nav a {
     color: #2D2D2D;
     text-decoration: none;
-    padding: 0 20px; 
-    display: flex; 
-    align-items: center; 
-    height: 100%; 
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 .menu nav a:hover {
@@ -77,15 +83,17 @@ header {
 
 
 main.emociones {
+    flex-grow: 1;
     display: flex;
-    justify-content: center; 
-    align-items: stretch; 
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
     padding: 20px;
-    gap: 30px; 
 }
 
 main.emociones article {
-    width: 45%; 
+     width: 45%;
+    max-width: 600px;
 }
 
 .emocion_diaria,
@@ -96,13 +104,14 @@ main.emociones article {
     flex-direction: column;
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    padding: 20px;
+    padding: 40px;
     box-sizing: border-box;
 }
 
 
 .emocion_diaria {
     justify-content: center;
+
 }
 
 .emocion_diaria h1,
@@ -110,6 +119,7 @@ main.emociones article {
     font-size: 35px;
     margin-top: 0;
     text-align: center;
+    justify-content: space-between;
 }
 
 .emocion_diaria p {
@@ -120,38 +130,39 @@ main.emociones article {
 
 .emocion_diaria img {
     width: 50%;
-    max-width: 250px; 
+    max-width: 250px;
     margin: 10px;
 }
 
 .registro_emocion {
     justify-content: space-between;
+    flex-grow: 1;
 }
 
 .opciones_emociones {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px; 
+    gap: 10px;
     width: 100%;
     padding: 10px;
 }
 
-.opciones_emociones > div {
+.opciones_emociones>div {
     text-align: center;
-    font-size: 15px; 
+    font-size: 15px;
 }
 
 .opciones_emociones img {
-    width: 70%; 
+    width: 70%;
     height: auto;
     cursor: pointer;
     transition: transform 0.3s ease;
-    margin: 0 auto 5px auto; 
-    display: block; 
+    margin: 0 auto 5px auto;
+    display: block;
 }
 
 .opciones_emociones img:hover {
-    transform: rotate(15deg) scale(1.05); 
+    transform: rotate(15deg) scale(1.05);
 }
 
 .registro_emocion button {
@@ -170,98 +181,125 @@ main.emociones article {
     background-color: #84E6E6;
 }
 
+@media (max-width: 884px) {
+  main.emociones {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  main.emociones article {
+    width: 90%;
+    max-width: 500px;
+  }
+
+  main.emociones article:first-child {
+    order: 2;
+  }
+
+  main.emociones article:last-child {
+    order: 1;
+  }
+}
+
+@media (max-width: 500px) {
+  .opciones_emociones {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 10px 20px;
+  }
+}
+
+
+
 footer {
-      background-color: #A8D8EA;
-      margin: 0px;
+    background-color: #A8D8EA;
       padding: 10px;
       color: #2D2D2D;
       width: 100%;
       display: flex;
       justify-content: center;
       gap: 10px;
-      position: absolute;
-      bottom: 0;
       font-family: "Inter", sans-serif;
 }
 
 .formularios_sesion {
-      background: #CDB4F4;
-      background: linear-gradient(187deg, rgba(205, 180, 244, 1) 0%, rgba(168, 216, 234, 1) 100%);
-      display: flex;
-      width: 100%;
-      height: 100%;
-      justify-content: center;
-      align-items: center;
+    background: #CDB4F4;
+    background: linear-gradient(187deg, rgba(205, 180, 244, 1) 0%, rgba(168, 216, 234, 1) 100%);
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 .iniciar_sesion {
-      background-color: #FFFFFF;
-      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-      border-radius: 20px;
-      display: flex;
-      padding: 20px;
-      flex-direction: column;
-      min-height: 500px;
-      min-width: 550px;
-      font-family: "Inter", sans-serif;
+    background-color: #FFFFFF;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 20px;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    min-height: 500px;
+    min-width: 550px;
+    font-family: "Inter", sans-serif;
 
 
-      h1 {
-            font-size: 40px;
-      }
+    h1 {
+        font-size: 40px;
+    }
 
-      h2 {
-            font-size: 30px;
-      }
+    h2 {
+        font-size: 30px;
+    }
 
-      p {
-            font-size: 20px;
-            font-style: italic;
-      }
+    p {
+        font-size: 20px;
+        font-style: italic;
+    }
 }
 
 .titulo {
-      margin: 20px;
-      text-align: center;
+    margin: 20px;
+    text-align: center;
 }
 
 .formulario {
-      margin: 20px;
-      padding: 20px;
-      justify-content: space-between;
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
+    margin: 20px;
+    padding: 20px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .formulario input {
-      margin: 5px;
-      border-radius: 4px;
-      height: 30px;
-      padding: 10px;
-      border: solid 2px #7D7D7D;
-      font-size: 15px;
+    margin: 5px;
+    border-radius: 4px;
+    height: 30px;
+    padding: 10px;
+    border: solid 2px #7D7D7D;
+    font-size: 15px;
 }
 
 .formulario label {
-      font-size: 20px;
+    font-size: 20px;
 }
 
 .submit {
-      margin-top: 45px;
-      padding: 15px;
-      border-radius: 20px;
-      background-color: #FF9AA2;
-      align-self: center;
-      border: none;
-      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-      cursor: pointer;
-      font-size: 16px;
-      width: 35%;
+    margin-top: 45px;
+    padding: 15px;
+    border-radius: 20px;
+    background-color: #FF9AA2;
+    align-self: center;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 35%;
 }
 
 .submit:hover {
-      background-color: #A8D8EA;
+    background-color: #A8D8EA;
 }
 
 .hero {
@@ -270,21 +308,22 @@ footer {
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 100vh;
+   height: calc(100vh - 60px);
     padding: 2rem;
     background: linear-gradient(170deg, #d3c4f8 0%, #a8d8ea 100%);
     position: relative;
     overflow: hidden;
 }
+
 .hero img {
-      width: 15%;
+    width: 15%;
 }
 
 .hero-content {
-      z-index: 10; 
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 50px;
+    z-index: 10;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
 }
 
 .hero-content h1 {
@@ -315,72 +354,66 @@ footer {
 }
 
 .posts-section {
-    padding: 80px 20px;
-    text-align: center;
-    min-height: 100vh; 
+  padding: 80px 20px;
+  text-align: center;
+  min-height: 100vh; 
 }
 
 .posts-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 50px;
-    color: #2D2D2D;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #2D2D2D;
 }
 
 .posts-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative; 
-    z-index: 5;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative; 
+  z-index: 5;
 }
 
 .post-card {
-    background-color: #FFFFFF;
-    border-radius: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    text-align: left;
-    overflow: hidden;
-    
-
-    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
-    position: absolute;
-    width: 300px;
-    height: 400px;
-    bottom: 0px; 
-    left: calc(50% - 150px);
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  text-align: left;
+  overflow: hidden;
+  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  position: absolute;
+  width: 300px;
+  height: 400px;
+  bottom: 0px; 
+  left: calc(50% - 150px);
 }
 
 .post-card:nth-child(1) {
-    background-color: #F7C6D9; 
-    transform: translateX(-160px) rotate(-15deg);
-    z-index: 2;
+  transform: translateX(-160px) rotate(-15deg);
+  z-index: 2;
 }
 .post-card:nth-child(2) {
-    background-color: #C2F0C2; 
-    transform: translateY(-40px);
-    z-index: 3; 
+  transform: translateY(-40px);
+  z-index: 3;
 }
 .post-card:nth-child(3) {
-    background-color: #A8D8EA; 
-    transform: translateX(160px) rotate(15deg);
-    z-index: 1;
+  transform: translateX(160px) rotate(15deg);
+  z-index: 1;
 }
 
-.post-card .post-content, .post-card .post-image {
+.post-card .post-content,
+.post-card .post-image {
     opacity: 0;
-    transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
 }
 
 
 .posts-section.scrolled .post-card {
-    position: static; 
-    transform: translateX(0) rotate(0) translateY(0); 
-    height: auto;
-    width: auto;
-    background-color: #FFFFFF; 
+  position: static;
+  transform: translateX(0) rotate(0) translateY(0);
+  height: auto;
+  width: auto;
 }
 
 .posts-section.scrolled .post-card .post-content,
@@ -419,13 +452,37 @@ footer {
     display: inline-block;
 }
 
+@media (max-width: 992px) {
+  /* Hacemos el cambio de columnas MÁS específico, solo para el estado .scrolled */
+  .posts-section.scrolled .posts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --- Estilos para Celular --- */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.8rem;
+  }
+
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+
+  /* Hacemos el cambio de columnas MÁS específico, solo para el estado .scrolled */
+  .posts-section.scrolled .posts-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
 .burger-menu {
-    display: none; 
+    display: none;
     background: transparent;
     border: none;
     cursor: pointer;
     padding: 0;
-    z-index: 1001; 
+    z-index: 1001;
 }
 
 .burger-bar {
@@ -440,9 +497,11 @@ footer {
 .burger-menu.active .burger-bar:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
 }
+
 .burger-menu.active .burger-bar:nth-child(2) {
     opacity: 0;
 }
+
 .burger-menu.active .burger-bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
 }
@@ -450,23 +509,23 @@ footer {
 @media (max-width: 768px) {
 
     .burger-menu {
-        display: block; 
+        display: block;
     }
 
     .nav {
         /* Menú desplegable oculto por defecto */
         position: fixed;
         top: 0;
-        right: -100%; 
+        right: -100%;
         width: 70%;
         height: 100vh;
-        background-color: rgba(205, 180, 244, 0.95); 
+        background-color: rgba(205, 180, 244, 0.95);
         backdrop-filter: blur(5px);
-        padding-top: 80px; 
+        padding-top: 80px;
         transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
         z-index: 1000;
     }
-    
+
     /* .nav::before {
         content: "";
         position: absolute;
@@ -476,17 +535,17 @@ footer {
     } */
 
     .nav.active {
-        right: 0; 
+        right: 0;
     }
 
     .nav-list {
-        flex-direction: column; 
+        flex-direction: column;
         align-items: center;
         gap: 20px;
     }
 
     .nav-list a {
-        font-size: 1.2rem; 
+        font-size: 1.2rem;
         padding: 15px;
         width: 100%;
         text-align: center;

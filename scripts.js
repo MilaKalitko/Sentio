@@ -44,4 +44,26 @@ document.addEventListener("DOMContentLoaded", () => {
             navMenu.classList.toggle('active');
         });
     }
+
+    const munecoDiario = document.getElementById('muneco-diario');
+    const opcionesEmociones = document.querySelectorAll('.opciones_emociones img');
+    // 1. NUEVA LÍNEA: Seleccionamos el título que vamos a cambiar.
+    const tituloEmocion = document.querySelector('.emocion_diaria h1');
+
+    if (munecoDiario && opcionesEmociones.length > 0 && tituloEmocion) {
+        
+        opcionesEmociones.forEach(carita => {
+            
+            carita.addEventListener('click', () => {
+                
+                const emocionSeleccionada = carita.dataset.emocion;
+                const nuevaImagenSrc = `/assets/munequito-${emocionSeleccionada}.png`;
+                
+                munecoDiario.src = nuevaImagenSrc;
+
+                // 2. NUEVA LÍNEA: Actualizamos el texto del título.
+                tituloEmocion.textContent = `Hoy te sentiste ${emocionSeleccionada}`;
+            });
+        });
+    }
 });
