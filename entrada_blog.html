@@ -1,21 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="description" content="Sentir esta bien">
-      <meta name="author" content="Milani Kalitko">
-      <link rel="stylesheet" href="styless.css">
-      <title>Mi calendario</title>
-      <link rel="icon" href="./recursos/icono.ico">
-</head>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styless.css">
+    <title>Entrada del Blog - Sentio</title>
+    </head>
 <body>
-      <header>
+    <header>
         <div class="menu">
             <a href="index.html" class="logo-link"><img src="/assets/logo.png" alt="Logo de Sentio"></a>
-            
             <nav id="nav-menu" class="nav">
                 <ul class="nav-list">
                     <li><a href="index.html">Registro diario</a></li>
@@ -24,7 +18,6 @@
                     <li><a href="formulario_iniciar_sesion.html">Iniciar sesión</a></li>
                 </ul>
             </nav>
-
             <button id="burger-button" class="burger-menu" aria-label="Abrir menú">
                 <span class="burger-bar"></span>
                 <span class="burger-bar"></span>
@@ -33,30 +26,23 @@
         </div>
     </header>
 
-      <section class="Calendario">
+    <main class="blog-post-container">
+        <article class="blog-post-card">
+            <h1 id="post-title"></h1>
+            <img id="post-image" src="" alt="Imagen principal del post">
+            <div class="post-content-full">
+                <h2 id="post-subtitle"></h2>
+                <p id="post-text"></p>
+            </div>
+        </article>
+    </main>
 
-            <table>
-                  <tr>
-                        <th>Firstname</th>
-                        <th>Lastname</th>
-                  </tr>
-                  <tr>
-                        <td>Peter</td>
-                        <td>Griffin</td>
-                  </tr>
-                  <tr>
-                        <td>Lois</td>
-                        <td>Griffin</td>
-                  </tr>
-            </table>
-      </section>
-
-
-      <footer>
+    <footer>
     <p>No estas solo</p>
     <a href="ayuda.html" style="color: #FF9AA2; cursor: pointer;">Si necesitas ayuda apreta aquí</a>
 </footer>
-      <script src="scripts.js"></script>
+    
+    <script src="postsData.js"></script>
+    <script src="scripts.js"></script>
 </body>
-
 </html>
