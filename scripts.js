@@ -38,8 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (burgerButton && navMenu) {
         burgerButton.addEventListener('click', () => {
-            // Alterna la clase 'active' en el botón (para la animación de X)
-            // y en el menú (para mostrarlo u ocultarlo)
             burgerButton.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
@@ -61,9 +59,31 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                 munecoDiario.src = nuevaImagenSrc;
 
-                // 2. NUEVA LÍNEA: Actualizamos el texto del título.
                 tituloEmocion.textContent = `Hoy te sentiste ${emocionSeleccionada}`;
             });
         });
     }
+    
+    const formLogin = document.getElementById('form-login');
+    const formRegister = document.getElementById('form-register');
+    const showRegisterLink = document.getElementById('show-register');
+    const showLoginLink = document.getElementById('show-login');
+
+    if (showRegisterLink) {
+        showRegisterLink.addEventListener('click', (e) => {
+            e.preventDefault(); 
+            formLogin.classList.add('form-oculto');
+            formRegister.classList.remove('form-oculto');
+        });
+    }
+
+    if (showLoginLink) {
+        showLoginLink.addEventListener('click', (e) => {
+            e.preventDefault(); 
+            formRegister.classList.add('form-oculto');
+            formLogin.classList.remove('form-oculto');
+        });
+    }
+
 });
+

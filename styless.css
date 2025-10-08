@@ -24,24 +24,42 @@ a {
 
 /* ESTO DE ARRIBA ES PARA FORMATEAR */
 
-
+/* --- ESTILOS GENERALES Y LAYOUT PRINCIPAL --- */
 body {
     background-color: #F5F5F5;
     font-family: "Inter", sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-
 }
 
-
 header {
-
     height: 60px;
     display: flex;
     align-items: center;
 }
 
+main.emociones {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 20px;
+}
+
+footer {
+    background-color: #A8D8EA;
+    padding: 10px;
+    color: #2D2D2D;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-family: "Inter", sans-serif;
+}
+
+/* --- ENCABEZADO Y NAVEGACIÓN --- */
 .menu {
     background-color: #CDB4F4;
     display: flex;
@@ -50,8 +68,8 @@ header {
     padding: 0 20px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     height: 60px;
-    flex-shrink: 0; 
-    width: 100%; 
+    flex-shrink: 0;
+    width: 100%;
     z-index: 100;
 }
 
@@ -81,18 +99,9 @@ header {
     border-radius: 8px;
 }
 
-
-main.emociones {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    padding: 20px;
-}
-
+/* --- PÁGINA: REGISTRO DE EMOCIONES --- */
 main.emociones article {
-     width: 45%;
+    width: 45%;
     max-width: 600px;
 }
 
@@ -108,10 +117,13 @@ main.emociones article {
     box-sizing: border-box;
 }
 
-
 .emocion_diaria {
     justify-content: center;
+}
 
+.registro_emocion {
+    justify-content: space-between;
+    flex-grow: 1;
 }
 
 .emocion_diaria h1,
@@ -119,7 +131,6 @@ main.emociones article {
     font-size: 35px;
     margin-top: 0;
     text-align: center;
-    justify-content: space-between;
 }
 
 .emocion_diaria p {
@@ -134,11 +145,6 @@ main.emociones article {
     margin: 10px;
 }
 
-.registro_emocion {
-    justify-content: space-between;
-    flex-grow: 1;
-}
-
 .opciones_emociones {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -147,7 +153,7 @@ main.emociones article {
     padding: 10px;
 }
 
-.opciones_emociones>div {
+.opciones_emociones > div {
     text-align: center;
     font-size: 15px;
 }
@@ -181,49 +187,9 @@ main.emociones article {
     background-color: #84E6E6;
 }
 
-@media (max-width: 884px) {
-  main.emociones {
-    flex-direction: column;
-    align-items: center;
-  }
 
-  main.emociones article {
-    width: 90%;
-    max-width: 500px;
-  }
-
-  main.emociones article:first-child {
-    order: 2;
-  }
-
-  main.emociones article:last-child {
-    order: 1;
-  }
-}
-
-@media (max-width: 500px) {
-  .opciones_emociones {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    padding: 10px 20px;
-  }
-}
-
-
-
-footer {
-    background-color: #A8D8EA;
-      padding: 10px;
-      color: #2D2D2D;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      font-family: "Inter", sans-serif;
-}
-
+/* --- PÁGINA: FORMULARIOS DE SESIÓN --- */
 .formularios_sesion {
-    background: #CDB4F4;
     background: linear-gradient(187deg, rgba(205, 180, 244, 1) 0%, rgba(168, 216, 234, 1) 100%);
     display: flex;
     width: 100%;
@@ -237,25 +203,29 @@ footer {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 20px;
     display: flex;
-    padding: 20px;
     flex-direction: column;
+    align-items: center;
+    padding: 20px 50px;
     min-height: 500px;
     min-width: 550px;
     font-family: "Inter", sans-serif;
+}
 
+.iniciar_sesion.form-oculto {
+    display: none;
+}
 
-    h1 {
-        font-size: 40px;
-    }
+.iniciar_sesion h1 {
+    font-size: 40px;
+}
 
-    h2 {
-        font-size: 30px;
-    }
+.iniciar_sesion h2 {
+    font-size: 30px;
+}
 
-    p {
-        font-size: 20px;
-        font-style: italic;
-    }
+.iniciar_sesion p {
+    font-size: 20px;
+    font-style: italic;
 }
 
 .titulo {
@@ -264,25 +234,21 @@ footer {
 }
 
 .formulario {
-    margin: 20px;
-    padding: 20px;
-    justify-content: space-between;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 8px;
+    width: 100%;
+    margin-top: 30px;
 }
 
 .formulario input {
-    margin: 5px;
-    border-radius: 4px;
-    height: 30px;
-    padding: 10px;
-    border: solid 2px #7D7D7D;
-    font-size: 15px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .formulario label {
-    font-size: 20px;
+    font-size: 18px;
+    margin-top: 10px;
 }
 
 .submit {
@@ -302,13 +268,31 @@ footer {
     background-color: #A8D8EA;
 }
 
+.texto_alternativo {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 16px;
+    color: #2D2D2D;
+}
+
+.texto_alternativo a {
+    color: #FF9AA2;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.texto_alternativo a:hover {
+    text-decoration: underline;
+}
+
+/* --- PÁGINA: HERRAMIENTAS (HERO Y POSTS) --- */
 .hero {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-   height: calc(100vh - 60px);
+    height: calc(100vh - 60px);
     padding: 2rem;
     background: linear-gradient(170deg, #d3c4f8 0%, #a8d8ea 100%);
     position: relative;
@@ -334,7 +318,6 @@ footer {
 
 .hero-content p {
     font-size: 1.25rem;
-    /* max-width: 600px; */
     margin-bottom: 2rem;
 }
 
@@ -354,66 +337,67 @@ footer {
 }
 
 .posts-section {
-  padding: 80px 20px;
-  text-align: center;
-  min-height: 100vh; 
+    padding: 80px 20px;
+    text-align: center;
+    min-height: 100vh;
 }
 
 .posts-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 50px;
-  color: #2D2D2D;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #2D2D2D;
 }
 
 .posts-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative; 
-  z-index: 5;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 5;
 }
 
 .post-card {
-  background-color: #FFFFFF;
-  border-radius: 20px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  text-align: left;
-  overflow: hidden;
-  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  position: absolute;
-  width: 300px;
-  height: 400px;
-  bottom: 0px; 
-  left: calc(50% - 150px);
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-align: left;
+    overflow: hidden;
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: absolute;
+    width: 300px;
+    height: 400px;
+    bottom: 0px;
+    left: calc(50% - 150px);
 }
 
 .post-card:nth-child(1) {
-  transform: translateX(-160px) rotate(-15deg);
-  z-index: 2;
+    transform: translateX(-160px) rotate(-15deg);
+    z-index: 2;
 }
+
 .post-card:nth-child(2) {
-  transform: translateY(-40px);
-  z-index: 3;
+    transform: translateY(-40px);
+    z-index: 3;
 }
+
 .post-card:nth-child(3) {
-  transform: translateX(160px) rotate(15deg);
-  z-index: 1;
+    transform: translateX(160px) rotate(15deg);
+    z-index: 1;
 }
 
 .post-card .post-content,
 .post-card .post-image {
     opacity: 0;
-  transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease;
 }
 
-
 .posts-section.scrolled .post-card {
-  position: static;
-  transform: translateX(0) rotate(0) translateY(0);
-  height: auto;
-  width: auto;
+    position: static;
+    transform: translateX(0) rotate(0) translateY(0);
+    height: auto;
+    width: auto;
 }
 
 .posts-section.scrolled .post-card .post-content,
@@ -452,30 +436,8 @@ footer {
     display: inline-block;
 }
 
-@media (max-width: 992px) {
-  /* Hacemos el cambio de columnas MÁS específico, solo para el estado .scrolled */
-  .posts-section.scrolled .posts-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 
-/* --- Estilos para Celular --- */
-@media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2.8rem;
-  }
-
-  .hero-content p {
-    font-size: 1.1rem;
-  }
-
-  /* Hacemos el cambio de columnas MÁS específico, solo para el estado .scrolled */
-  .posts-section.scrolled .posts-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-}
-
+/* --- COMPONENTE: MENÚ HAMBURGUESA --- */
 .burger-menu {
     display: none;
     background: transparent;
@@ -506,14 +468,43 @@ footer {
     transform: translateY(-8px) rotate(-45deg);
 }
 
-@media (max-width: 768px) {
 
+/* --- ESTILOS RESPONSIVE --- */
+
+@media (max-width: 992px) {
+    .posts-section.scrolled .posts-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* --- Breakpoint para Tablets pequeñas y Celulares --- */
+@media (max-width: 884px) {
+    main.emociones {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    main.emociones article {
+        width: 90%;
+        max-width: 500px;
+    }
+
+    main.emociones article:first-child {
+        order: 2;
+    }
+
+    main.emociones article:last-child {
+        order: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    /* --- Menú Hamburguesa --- */
     .burger-menu {
         display: block;
     }
 
     .nav {
-        /* Menú desplegable oculto por defecto */
         position: fixed;
         top: 0;
         right: -100%;
@@ -525,14 +516,6 @@ footer {
         transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
         z-index: 1000;
     }
-
-    /* .nav::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.2);
-        z-index: -1;
-    } */
 
     .nav.active {
         right: 0;
@@ -549,6 +532,49 @@ footer {
         padding: 15px;
         width: 100%;
         text-align: center;
+    }
+
+    /* --- Formularios de Sesión --- */
+    .iniciar_sesion {
+        min-width: 0;
+        width: 90%;
+        min-height: auto;
+        padding: 30px 20px;
+    }
+
+    .iniciar_sesion h1 {
+        font-size: 32px;
+    }
+
+    .iniciar_sesion h2 {
+        font-size: 26px;
+    }
+
+    .submit {
+        width: 60%;
+        padding: 12px;
+    }
+
+    /* --- Página de Herramientas --- */
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    .posts-section.scrolled .posts-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 500px) {
+    .opciones_emociones {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        padding: 10px 20px;
     }
 }
 
