@@ -1,7 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-    // --- FUNCIONALIDAD GLOBAL: MENÚ HAMBURGUESA ---
-    // Se ejecuta en todas las páginas.
     const burgerButton = document.getElementById('burger-button');
     const navMenu = document.getElementById('nav-menu');
     if (burgerButton && navMenu) {
@@ -11,8 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // --- PÁGINA DE INICIO: REGISTRO DE EMOCIONES ---
-    // Solo se ejecuta si encuentra los elementos de la página de emociones.
     const munecoDiario = document.getElementById('muneco-diario');
     const opcionesEmociones = document.querySelectorAll('.opciones_emociones img');
     const tituloEmocion = document.querySelector('.emocion_diaria h1');
@@ -20,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
         opcionesEmociones.forEach(carita => {
             carita.addEventListener('click', () => {
                 const emocionSeleccionada = carita.dataset.emocion;
-                const nuevaImagenSrc = `/assets/munequito-${emocionSeleccionada}.png`;
+                const nuevaImagenSrc = `./assets/munequito-${emocionSeleccionada}.png`;
                 
                 // Capitalizar la primera letra de la emoción
                 const emocionCapitalizada = emocionSeleccionada.charAt(0).toUpperCase() + emocionSeleccionada.slice(1);
@@ -31,8 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // --- PÁGINA DE SESIÓN: ALTERNAR FORMULARIOS LOGIN/REGISTRO ---
-    // Solo se ejecuta si encuentra los formularios.
     const formLogin = document.getElementById('form-login');
     const formRegister = document.getElementById('form-register');
     const showRegisterLink = document.getElementById('show-register');
@@ -50,11 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // --- PÁGINA DE HERRAMIENTAS: CREAR TARJETAS Y ANIMACIÓN ---
-    // Solo se ejecuta si encuentra la grilla de posts.
     const postsGrid = document.querySelector(".posts-grid");
     if (postsGrid && typeof postsData !== 'undefined') {
-        // Crea las tarjetas con la información de postsData.js
         postsData.forEach(post => {
             const card = document.createElement("article");
             card.className = "post-card";
@@ -69,8 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
             postsGrid.appendChild(card);
         });
 
-        // Lógica para la animación al hacer scroll
-        const postsSection = document.querySelector(".posts-section"); // Usamos querySelector por si no tiene ID
+        const postsSection = document.querySelector(".posts-section");
         if (postsSection) {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -83,8 +72,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // --- PÁGINA DE ENTRADA DE BLOG: LLENAR CON DATOS ---
-    // Solo se ejecuta si encuentra el título del post en la página.
     const postTitle = document.getElementById('post-title');
     if (postTitle && typeof postsData !== 'undefined') {
         const urlParams = new URLSearchParams(window.location.search);
