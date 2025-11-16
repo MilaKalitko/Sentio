@@ -49,7 +49,7 @@ main.emociones {
 }
 
 footer {
-    background-color: #A8D8EA;
+   background-color: #A8D8EA;
     padding: 10px;
     color: #2D2D2D;
     width: 100%;
@@ -57,6 +57,7 @@ footer {
     justify-content: center;
     gap: 10px;
     font-family: "Inter", sans-serif;
+    flex-shrink: 0;
 }
 
 /* --- ENCABEZADO Y NAVEGACIÓN --- */
@@ -181,6 +182,9 @@ main.emociones article {
     cursor: pointer;
     width: 40%;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .registro_emocion button:hover {
@@ -356,6 +360,7 @@ main.emociones article {
     margin: 0 auto;
     position: relative;
     z-index: 5;
+    min-height: 450px; 
 }
 
 .post-card {
@@ -370,39 +375,34 @@ main.emociones article {
     height: 400px;
     bottom: 0px;
     left: calc(50% - 150px);
+    opacity: 0; 
+    transform: scale(0.8);
 }
 
 .post-card:nth-child(1) {
-    transform: translateX(-160px) rotate(-15deg);
+    transform: translateX(-160px) rotate(-15deg) scale(0.8);
+    opacity: 0;
     z-index: 2;
 }
 
 .post-card:nth-child(2) {
-    transform: translateY(-40px);
+    transform: translateY(-40px) scale(0.8);
+    opacity: 0;
     z-index: 3;
 }
 
 .post-card:nth-child(3) {
-    transform: translateX(160px) rotate(15deg);
-    z-index: 1;
-}
-
-.post-card .post-content,
-.post-card .post-image {
+    transform: translateX(160px) rotate(15deg) scale(0.8);
     opacity: 0;
-    transition: opacity 0.5s ease;
+    z-index: 1;
 }
 
 .posts-section.scrolled .post-card {
     position: static;
-    transform: translateX(0) rotate(0) translateY(0);
+    transform: translateX(0) rotate(0) translateY(0) scale(1);
+    opacity: 1; 
     height: auto;
     width: auto;
-}
-
-.posts-section.scrolled .post-card .post-content,
-.posts-section.scrolled .post-card .post-image {
-    opacity: 1;
 }
 
 .post-card .post-image {
@@ -732,18 +732,369 @@ main.emociones article {
 body.ayuda-page footer {
     display: none;
 }
-/* <style> :root {
-      --rosa: #F7C6D9;
-      --celeste: #A8D8EA;
-      --amarillo: #FFF5A5;
-      --menta: #C2F0C2;
-      --lavanda: #CDB4F4;
-      --blanco: #FFFFFF;
-      --gris-claro: #F5F5F5;
-      --gris-medio: #7D7D7D;
-      --negro: #2D2D2D;
-      --coral: #FF9AA2;
-      --turquesa: #00C2BA;
+
+/* --- ESTILOS PARA EL MODAL POP-UP --- */
+
+.modal-oculto {
+    display: none; 
 }
 
-</style> */
+.modal-visible {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5); 
+}
+
+/* 2. Contenido de la Caja */
+.modal-contenido {
+    background-color: #fefefe;
+    padding: 25px 35px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    text-align: center;
+    position: relative;
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    color: #333;
+}
+
+.modal-contenido h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.modal-contenido p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+/* 3. Botón de Aceptar/Cerrar */
+.btn-modal-cerrar {
+    background-color: #CDB4F4; 
+    color: #2D2D2D;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px; 
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-modal-cerrar:hover {
+    background-color: #FF9AA2; 
+}
+
+/* 4. Clases de Estado (Aplicadas al .modal-contenido por JavaScript) */
+
+.modal-contenido.success {
+    background-color: #d4edda; 
+    border: 1px solid #c3e6cb;
+}
+.modal-contenido.success h2, .modal-contenido.success p {
+    color: #155724;
+}
+
+.modal-contenido.error {
+    background-color: #f8d7da; 
+    border: 1px solid #f5c6cb;
+}
+.modal-contenido.error h2, .modal-contenido.error p {
+    color: #721c24; 
+}
+
+/* --- ESTILOS PARA EL DASHBOARD DE EMOCIONES (calendario.php) --- */
+
+.emociones-dashboard {
+    display: flex; 
+    justify-content: center;
+    gap: 40px; 
+    padding: 30px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    flex-grow: 1;
+    align-items: flex-start; 
+}
+
+.calendario-cont {
+    flex: 1 1 55%; 
+    max-width: 800px;
+}
+
+.estadisticas-cont {
+    flex: 1 1 35%; 
+    background-color: #FFFFFF; 
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 500px;
+    height: 100%; 
+}
+.estadisticas-cont h1 {
+    font-size: 2.2em;
+    margin-top: 0;
+}
+
+/* Estilos para el texto del resumen de estadísticas */
+#stats-resumen p span {
+    font-size: 1.1em;
+}
+
+/* Media Query para dispositivos pequeños (apilar las columnas) */
+@media (max-width: 992px) {
+   .emociones-dashboard {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 10px; 
+    }
+    .calendario-cont, .estadisticas-cont {
+        width: 100%; 
+        max-width: none; 
+        padding: 0 10px; 
+    }
+    
+    .estadisticas-cont {
+        min-width: 320px; 
+        width: 95%; 
+        margin-top: 20px; 
+    }
+}
+
+/* --- SOBREESCRITURA DE ESTILOS DEL CALENDARIO JQUERY --- */
+
+/* 1. Contenedor Principal */
+.calendar { 
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important; 
+    border-radius: 20px !important; 
+    font-family: "Inter", sans-serif !important;
+}
+
+/* 2. Cabecera (Mes y Año) */
+.calendar header {
+    background-color: #CDB4F4 !important; 
+    color: #2D2D2D !important; 
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+    border-bottom: 2px solid #FF9AA2 !important; 
+}
+
+/* 3. Botones de Navegación (< Mes Anterior / Mes Siguiente >) */
+.calendar header .button {
+    background-color: transparent !important; 
+    color: #2D2D2D !important; 
+    transition: background-color 0.2s ease;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 0 5px;
+}
+.calendar header .button:hover {
+    background-color: #A8D8EA !important; 
+}
+.calendar header .button.active,
+.calendar header .button:focus {
+    background-color: transparent !important;
+    outline: none;
+}
+.calendar header .header-label {
+    cursor: default !important; 
+}
+
+.calendar thead th {
+    height: 30px; 
+    line-height: 30px;
+    font-weight: bold;
+    color: #9e9e9e !important; 
+}
+.calendar thead th:not(:last-child) { 
+    border-right: none !important; 
+}
+
+.calendar table td { 
+    width: 40px !important; 
+    height: 40px !important;
+    line-height: 40px !important;
+    border: 1px solid #e6e6e6 !important; 
+}
+
+.calendar .calendar-frame tbody td.disabled { 
+    color: #bbb !important; 
+    background: #fcfcfc !important; 
+}
+
+/* Estilo para el día actual */
+.calendar .calendar-frame tbody td.today { 
+    background: #FF9AA250 !important; 
+    color: #2D2D2D !important; 
+    border: 2px solid #FF9AA2 !important;
+    font-weight: bold;
+}
+
+.calendar .calendar-frame tbody td:not(.disabled).selected { 
+    background: #A8D8EA !important; 
+    color: #2D2D2D !important; 
+    font-weight: bold;
+}
+
+.calendar .calendar-frame tbody td:not(.disabled):hover { 
+    color: #2D2D2D !important;
+    background: #CDB4F450 !important; 
+    cursor: pointer;
+}
+
+main {
+    margin-bottom: 0 !important;
+}
+footer {
+    margin-top: 0 !important;
+}
+
+
+#emocion-diaria-box {
+    transition: background-color 0.3s ease;
+}
+
+/* Estilo para el área de texto de la nota (añadido en index.php) */
+.registro_emocion textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    resize: none; /
+}
+
+/* Estilo para el contenedor de la nota (label + textarea) */
+.registro_emocion .nota-container {
+    width: 100%;
+    margin-top: 20px;
+    text-align: left;
+}
+
+/* Estilo para el aviso debajo del botón de registro */
+.registro_emocion .aviso-no-logueado {
+    text-align: center;
+    color: #721c24; 
+    margin-top: 20px;
+}
+
+.registro_emocion .aviso-no-logueado a {
+    color: #FF9AA2;
+    font-weight: bold;
+}
+
+/* --- ESTILOS EXTRAÍDOS DEL CALENDARIO.PHP --- */
+
+/* Contenedor principal del historial */
+.calendario-cont {
+    padding-top: 10px;
+}
+.historial-titulo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+/* ESTADÍSTICAS (Columna Derecha) */
+
+.saludo-usuario-color {
+    font-size: 2.2em;
+    margin-top: 0;
+}
+
+.stats-separador {
+    margin: 15px 0;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+.stats-separador-grande {
+    margin: 30px 0;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+.stats-linea {
+    font-size: 1.1em;
+    margin-bottom: 8px;
+}
+
+.stats-contador {
+    font-weight: bold;
+}
+
+.stats-total {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.frase-titulo {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.frase-texto {
+    font-style: italic;
+    font-size: 1.2em;
+}
+
+.footer-link-ayuda {
+    color: #FF9AA2;
+    cursor: pointer;
+}
+
+/* POPUP (Detalle de Emoción al hacer clic) */
+
+.popup-emocion-detalle {
+    display: none; 
+    position: absolute; 
+    z-index: 1000; 
+    background: white; 
+    border: 1px solid #FF9AA2; 
+    padding: 10px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    min-width: 150px;
+    text-align: center;
+}
+
+.popup-linea-emocion {
+    margin: 0;
+}
+.popup-emocion-nombre {
+    font-weight: bold;
+}
+
+.popup-separador {
+    border-top: 1px solid #eee;
+    margin: 5px 0;
+}
+
+.popup-linea-nota {
+    margin: 5px 0 0;
+    font-size: 0.9em;
+    max-width: 250px;
+    white-space: pre-wrap;
+    text-align: center;
+}
+
+.popup-nota-texto {
+    font-style: italic;
+    display: block;
+}

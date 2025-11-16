@@ -1,0 +1,24 @@
+# Archivos de Sistema Operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de Entorno de Desarrollo PHP/Composer
+/vendor/
+composer.lock
+
+# Archivos de Configuración Sensibles
+*.env
+*.ini
+
+# -----------------
+# Base de Datos y Logs
+# -----------------
+
+# La base de datos local (Contiene el esquema y datos sensibles)
+*.sql
+*.sqlite
+/database/
+
+# Archivos de logs de errores
+*.log
+/logs/
