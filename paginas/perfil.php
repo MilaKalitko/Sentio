@@ -1,5 +1,5 @@
 <?php
-include 'conexion.php';
+include '../includes/conexion.php';
 
 // Bloqueo de página: si no está logueado, redirige
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== TRUE) {
@@ -19,7 +19,7 @@ $resultado = $stmt->get_result();
 if ($resultado->num_rows == 1) {
     $datos_usuario = $resultado->fetch_assoc();
 } else {
-    header("Location: cerrar_sesion.php");
+    header("Location: ../includes/cerrar_sesion.php");
     exit();
 }
 $stmt->close();
@@ -31,20 +31,20 @@ $conexion->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styless.css">
+    <link rel="stylesheet" href="../styless.css">
     <title>Sentio / Perfil de Usuario</title>
 </head>
 
 <body>
     <header>
         <div class="menu">
-            <a href="index.php" class="logo-link"><img src="./assets/logo.png" alt="Logo de Sentio"></a>
+            <a href="../index.php" class="logo-link"><img src="../assets/logo.png" alt="Logo de Sentio"></a>
             
             <nav id="nav-menu" class="nav">
                 <ul class="nav-list">
-                    <li><a href="index.php">Registro diario</a></li>
+                    <li><a href="../index.php">Registro diario</a></li>
                     <li><a href="calendario.php">Mi calendario</a></li>
-                    <li><a href="herramientas.html">Herramientas</a></li>
+                    <li><a href="herramientas.php">Herramientas</a></li>
                     
                     <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === TRUE): ?>
                         <li><a href="perfil.php"><?php echo htmlspecialchars($_SESSION['username']); ?></a></li>
@@ -63,24 +63,28 @@ $conexion->close();
     </header>
 
     <main class="help-page-container"> 
-        <div class="help-card" style="max-width: 500px; text-align: center;">
+        <div class="help-card perfil-card">
             <h1 class="help-title">Hola, <?php echo htmlspecialchars($datos_usuario['username']); ?></h1>
             <p>Aquí puedes revisar la información de tu cuenta.</p>
             
-            <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+            <hr class="info-separador">
             
-            <p style="font-weight: bold; margin-bottom: 5px;">Correo Electrónico:</p>
-            <p style="margin-bottom: 20px;"><?php echo htmlspecialchars($datos_usuario['email']); ?></p>
+            <div class="perfil-info-group">
+                <p class="perfil-label">Correo Electrónico:</p>
+                <p class="perfil-value"><?php echo htmlspecialchars($datos_usuario['email']); ?></p>
+            </div>
             
-            <p style="font-weight: bold; margin-bottom: 5px;">Miembro desde:</p>
-            <p style="margin-bottom: 30px;"><?php echo date("d/m/Y", strtotime($datos_usuario['fecha_registro'])); ?></p>
+            <div class="perfil-info-group">
+                <p class="perfil-label">Miembro desde:</p>
+                <p class="perfil-value"><?php echo date("d/m/Y", strtotime($datos_usuario['fecha_registro'])); ?></p>
+            </div>
             
-            <a href="cerrar_sesion.php" class="btn-explorar" style="background-color: #FF9AA2; display: inline-block;">
+            <a href="../includes/cerrar_sesion.php" class="btn-explorar perfil-logout-btn">
                 Cerrar Sesión
             </a>
         </div>
     </main>
 
-    <script src="scripts.js"></script> 
+    <script src="../scripts.js"></script> 
 </body>
 </html>

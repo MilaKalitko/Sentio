@@ -1,17 +1,18 @@
 <?php
-include 'conexion.php';
+include '../includes/conexion.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+    // Sanitización y obtención de datos
     $username = $conexion->real_escape_string($_POST['username']);
     $email = $conexion->real_escape_string($_POST['email']);
     $password = $_POST['password']; 
     $password_hash = password_hash($password, PASSWORD_DEFAULT);
     $fecha_registro = date("Y-m-d H:i:s");
-    
-    $sql = "INSERT INTO usuarios (username, email, password_hash, fecha_registro) 
-            VALUES ('$username', '$email', '$password_hash', '$fecha_registro')";
+    $sql = "INSERT INTO usuarios (username, email, password_hash, fecha_registro, rol) 
+             VALUES ('$username', '$email', '$password_hash', '$fecha_registro', 'user')";  
 
+    // Bloque Try-Catch para manejar la duplicidad de entrada (Error 1062)
     try {
         $conexion->query($sql);
         $_SESSION['mensaje'] = [
@@ -34,11 +35,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $conexion->close();
-    header("Location: formulario_acceso.php"); 
+    header("Location: ../paginas/formulario_acceso.php"); 
     exit(); 
     
 } else {
-    header("Location: formulario_acceso.php"); 
+    header("Location: ../paginas/formulario_acceso.php"); 
     exit();
 }
 ?>

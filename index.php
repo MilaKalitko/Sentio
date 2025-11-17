@@ -1,5 +1,6 @@
 <?php
-include 'conexion.php'; 
+// index.php (Ubicado en la raíz)
+include 'includes/conexion.php'; 
 
 // Verifica si el usuario está logueado para mostrar contenido o menú dinámico
 $usuario_logueado = isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === TRUE;
@@ -76,13 +77,13 @@ $conexion->close();
             <nav id="nav-menu" class="nav">
                 <ul class="nav-list">
                     <li><a href="index.php">Registro diario</a></li>
-                    <li><a href="calendario.php">Mi calendario</a></li>
-                    <li><a href="herramientas.html">Herramientas</a></li>
+                    <li><a href="paginas/calendario.php">Mi calendario</a></li>
+                    <li><a href="paginas/herramientas.php">Herramientas</a></li>
                     
                     <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === TRUE): ?>
-                        <li><a href="perfil.php"><?php echo htmlspecialchars($_SESSION['username']); ?></a></li>
+                        <li><a href="paginas/perfil.php"><?php echo htmlspecialchars($_SESSION['username']); ?></a></li>
                     <?php else: ?>
-                        <li><a href="formulario_acceso.php">Iniciar sesión</a></li>
+                        <li><a href="paginas/formulario_acceso.php">Iniciar sesión</a></li>
                     <?php endif; ?>
                 </ul>
             </nav>
@@ -96,9 +97,7 @@ $conexion->close();
     </header>
     <main class="emociones">
         <article>
-            <div class="emocion_diaria" id="emocion-diaria-box" style="
-                <?php if ($emocion_del_dia) echo 'background-color: ' . htmlspecialchars($emocion_del_dia['color_hex']) . '30;'; ?>
-            ">
+            <div class="emocion_diaria" id="emocion-diaria-box" data-color="<?php echo $emocion_del_dia ? htmlspecialchars($emocion_del_dia['color_hex']) : ''; ?>">
                 <?php if ($emocion_del_dia): ?>
                     <?php $nombre_capitalizado = ucfirst(htmlspecialchars($emocion_del_dia['nombre'])); ?>
                     <h1>¡Hoy te sentiste <?php echo $nombre_capitalizado; ?>!</h1>
@@ -117,12 +116,12 @@ $conexion->close();
                 <div class="registro_emocion">
                     <h2>¿Cómo te sientes hoy?</h2>
                     
-                    <form action="procesar_registro_diario.php" method="POST" id="form-registro-emocion">
+                    <form action="procesadores/procesar_registro_diario.php" method="POST" id="form-registro-emocion">
                         <input type="hidden" name="emocion_id" id="emocion-seleccionada-id" value="">
 
                         <div class="opciones_emociones">
                             <?php if (empty($emociones)): ?>
-                                <p style="text-align: center; grid-column: span 3;">Aún no hay emociones cargadas por el administrador.</p>
+                                <p class="aviso-admin-vacio">Aún no hay emociones cargadas por el administrador.</p>
                             <?php else: ?>
                                 <?php foreach ($emociones as $emocion): ?>
                                     <div>
@@ -159,7 +158,7 @@ $conexion->close();
                     
                     <?php if (!$usuario_logueado): ?>
                         <p class="aviso-no-logueado">
-                            Debes <a href="formulario_acceso.php">iniciar sesión</a> para registrar tu emoción.
+                            Debes <a href="paginas/formulario_acceso.php">iniciar sesión</a> para registrar tu emoción.
                         </p>
                     <?php endif; ?>
                 </div>
@@ -169,7 +168,7 @@ $conexion->close();
 
     <footer>
         <p>No estas solo</p>
-        <a href="ayuda.html" style="color: #FF9AA2; cursor: pointer;">Si necesitas ayuda apreta aquí</a>
+        <a href="paginas/ayuda.php" class="footer-link-ayuda">Si necesitas ayuda apreta aquí</a>
     </footer>
     
     <script>

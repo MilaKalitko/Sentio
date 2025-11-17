@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Lógica del Menú Hamburguesa 
+    // 1. Lógica del Menú Hamburguesa
     const burgerButton = document.getElementById('burger-button');
     const navMenu = document.getElementById('nav-menu');
     if (burgerButton && navMenu) {
@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // 2. Lógica del Selector de Emociones DINÁMICA (Registro Diario)
-    
     if (typeof usuarioLogueado !== "undefined") {
         const munecoDiario = document.getElementById('muneco-diario');
         const opcionesEmociones = document.querySelectorAll('.opciones_emociones img.carita-opcion'); 
@@ -18,9 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const emocionSeleccionadaInput = document.getElementById('emocion-seleccionada-id');
         const btnRegistrar = document.getElementById('btn-registrar-emocion');
         const emocionDiariaBox = document.getElementById('emocion-diaria-box');
+
         if (munecoDiario && opcionesEmociones.length > 0 && tituloEmocion && btnRegistrar) {
             
-
             if (!usuarioLogueado) {
                 btnRegistrar.disabled = true;
                 btnRegistrar.textContent = 'Inicia sesión para registrar';
@@ -55,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // 3. Lógica de Cambio de Formularios 
+    // 3. Lógica de Cambio de Formularios (Login/Registro)
     const formLogin = document.getElementById('form-login');
     const formRegister = document.getElementById('form-register');
     const showRegisterLink = document.getElementById('show-register');
@@ -88,12 +87,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div class="post-content">
                         <p class="post-date">${post.subtitle}</p>
                         <p class="post-description">${post.description}</p>
-                        <a href="entrada_blog.html?id=${post.id}" class="btn-ver-mas">Ver más</a>
+                        
+                        <a href="entrada_blog.php?id=${post.id}" class="btn-ver-mas">Ver más</a> 
+                        
                     </div>
                 `;
                 postsGrid.appendChild(card);
             });
             
+            // Intersection Observer para la animación de las tarjetas
             const postsSection = document.querySelector(".posts-section");
             if (postsSection) {
                 const observer = new IntersectionObserver((entries) => {
@@ -129,6 +131,8 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     }
+
+
     // 5. Lógica del Modal de Mensajes
     if (typeof mensajePHP !== "undefined") {
         const modalMensaje = document.getElementById('modal-mensaje');

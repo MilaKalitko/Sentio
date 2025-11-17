@@ -1,21 +1,33 @@
+<?php
+session_start();
+include '../includes/conexion.php'; 
+
+// Verifica si el usuario está logueado para mostrar el menú dinámico
+$usuario_logueado = isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === TRUE;
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styless.css">
+    <link rel="stylesheet" href="../styless.css">
     <title>Ayuda y Contacto - Sentio</title>
 </head>
 <body class="ayuda-page">
     <header>
         <div class="menu">
-            <a href="index.php" class="logo-link"><img src="./assets/logo.png" alt="Logo de Sentio"></a>
+            <a href="../index.php" class="logo-link"><img src="../assets/logo.png" alt="Logo de Sentio"></a>
             <nav id="nav-menu" class="nav">
                 <ul class="nav-list">
-                    <li><a href="index.php">Registro diario</a></li>
+                    <li><a href="../index.php">Registro diario</a></li>
                     <li><a href="calendario.php">Mi calendario</a></li>
-                    <li><a href="herramientas.html">Herramientas</a></li>
-                    <li><a href="formulario_acceso.php">Iniciar sesión</a></li>
+                    <li><a href="herramientas.php">Herramientas</a></li>
+                    
+                    <?php if ($usuario_logueado): ?>
+                        <li><a href="perfil.php"><?php echo htmlspecialchars($_SESSION['username']); ?></a></li>
+                    <?php else: ?>
+                        <li><a href="formulario_acceso.php">Iniciar sesión</a></li>
+                    <?php endif; ?>
                 </ul>
             </nav>
             <button id="burger-button" class="burger-menu" aria-label="Abrir menú">
@@ -42,15 +54,15 @@
                 <li class="linea-mujer"><strong>Mujeres en situación de violencia: 144</strong> (Línea gratuita y confidencial)</li>
             </ul>
 
-            <p>✨ No dudes en llamar. Tu bienestar importa. Tu vida importa. Tú importas.</p>
+            <p class="final-message">✨ No dudes en llamar. Tu bienestar importa. Tu vida importa. Tú importas.</p>
         </section>
     </main>
 
     <footer>
         <p>No estas solo</p>
-        <a href="ayuda.html" style="color: #FF9AA2; cursor: pointer;">Si necesitas ayuda apreta aquí</a>
+        <a href="ayuda.php" class="footer-link-ayuda">Si necesitas ayuda apreta aquí</a>
     </footer>
     
-    <script src="scripts.js"></script>
+    <script src="../scripts.js"></script>
 </body>
 </html>

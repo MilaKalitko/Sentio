@@ -1098,3 +1098,200 @@ footer {
     font-style: italic;
     display: block;
 }
+
+/* 1. Estilo para el área de texto de la nota */
+.registro-nota-container {
+    width: 100%;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.registro-nota-container label {
+    font-size: 18px;
+    display: block; 
+    margin-bottom: 5px;
+}
+
+.registro-nota-textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    resize: none; 
+}
+
+/* 2. Estilo para el fondo del muñeco (se activa al registrar) */
+#emocion-diaria-box {
+    transition: background-color 0.3s ease;
+}
+
+/* 3. Estilos del Aviso de Login y Footer Link */
+
+.aviso-no-logueado {
+    text-align: center;
+    color: #721c24; 
+    margin-top: 20px;
+}
+
+.aviso-no-logueado a {
+    color: #FF9AA2; 
+    font-weight: bold;
+}
+
+.aviso-admin-vacio {
+    text-align: center; 
+    grid-column: span 3;
+}
+
+.footer-link-ayuda {
+    color: #FF9AA2;
+    cursor: pointer;
+}
+
+
+.admin-card {
+    max-width: 800px !important; 
+    text-align: center;
+}
+
+.admin-intro-text {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.admin-button-group {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.admin-button-link {
+    flex-grow: 1; 
+    width: auto !important; 
+}
+
+
+.final-message {
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.footer-link-ayuda {
+    color: #FF9AA2;
+    cursor: pointer;
+}
+
+/* --- ESTILOS DE gestion_emociones.php --- */
+
+.admin-gestion-card {
+    max-width: 800px;
+}
+
+.admin-separador-line {
+    margin: 30px 0;
+    border: 0;
+    border-top: 1px solid #ccc;
+}
+
+.admin-subtitle {
+    font-size: 1.8em;
+    text-align: center;
+}
+
+/* Estilos de la Tabla de Emociones */
+.emocion-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table-header-row {
+    background-color: #CDB4F4;
+    color: #2D2D2D;
+}
+
+.table-cell {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.table-cell-center {
+    text-align: center;
+}
+
+.color-preview-circle {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #333;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.emocion-preview-img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+/* Botón Eliminar dentro de la tabla */
+.delete-button {
+    background-color: #FF9AA2;
+    padding: 5px 10px;
+    margin: 0;
+    width: auto;
+    font-size: 14px;
+    display: inline-block;
+    margin: 0;
+}
+
+.delete-button:hover {
+    background-color: #e6868d;
+}
+
+.admin-vacio-msg {
+    text-align: center;
+}
+
+/* --- ESTILOS DEL perfil.php --- */
+
+.perfil-card {
+    /* Estilos que estaban en línea: tamaño y centrado */
+    max-width: 500px !important;
+    text-align: center;
+    padding: 40px 50px;
+}
+
+.info-separador {
+    /* Estilo para la línea <hr> */
+    margin: 20px 0;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+.perfil-info-group {
+    /* Contenedor para las etiquetas de texto */
+    margin-bottom: 20px;
+}
+
+.perfil-label {
+    /* Estilo para el label (ej: "Correo Electrónico:") */
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.perfil-value {
+    /* Estilo para el valor real */
+    margin-bottom: 20px;
+}
+
+.perfil-logout-btn {
+    /* Estilo para el botón de Cerrar Sesión */
+    background-color: #FF9AA2; 
+    display: inline-block;
+    width: auto !important; 
+    padding: 10px 20px;
+}

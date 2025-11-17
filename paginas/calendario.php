@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'conexion.php';
+include '../includes/conexion.php';
 
 // --- VERIFICACIÓN DE SESIÓN Y LÓGICA DE DATOS ---
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== TRUE) {
@@ -47,12 +47,12 @@ $total_dias_registrados = 0;
 while ($fila = $resultado->fetch_assoc()) {
     $fecha_solo_dia = date('Y-m-d', strtotime($fila['fecha_registro']));
     
-    // 1. Datos para el Calendario (incluyendo la nota)
+    // 1. Datos para el Calendario
     $registros_calendario[$fecha_solo_dia] = [
         'color' => $fila['color_hex'],
         'emocion' => $fila['emocion_nombre'],
         'datetime' => $fila['fecha_registro'],
-        'nota' => $fila['nota'] // Nota para el popup
+        'nota' => $fila['nota'] 
     ];
     
     // 2. Datos para Estadísticas
@@ -64,7 +64,6 @@ while ($fila = $resultado->fetch_assoc()) {
     $total_dias_registrados++;
 }
 
-// Determinar el color principal del saludo
 if (!empty($estadisticas_emociones)) {
     uasort($estadisticas_emociones, function($a, $b) { return $b['count'] <=> $a['count']; });
     $emocion_mas_frecuente = reset($estadisticas_emociones);
@@ -81,22 +80,22 @@ $conexion->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styless.css">
+    <link rel="stylesheet" href="../styless.css">
     <title>Mi calendario</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <link rel="stylesheet" href="lib/multilingual-calendar-date-picker/jquery.calendar.css">
-    <script src="lib/multilingual-calendar-date-picker/jquery.calendar.js"></script>
+    <link rel="stylesheet" href="../lib/multilingual-calendar-date-picker/jquery.calendar.css">
+    <script src="../lib/multilingual-calendar-date-picker/jquery.calendar.js"></script>
 </head>
 
 <body>
     <header>
         <div class="menu">
-            <a href="index.php" class="logo-link"><img src="./assets/logo.png" alt="Logo de Sentio"></a>
+            <a href="../index.php" class="logo-link"><img src="../assets/logo.png" alt="Logo de Sentio"></a>
             <nav id="nav-menu" class="nav">
                 <ul class="nav-list">
-                    <li><a href="index.php">Registro diario</a></li>
+                    <li><a href="../index.php">Registro diario</a></li>
                     <li><a href="calendario.php">Mi calendario</a></li>
-                    <li><a href="herramientas.html">Herramientas</a></li>
+                    <li><a href="herramientas.php">Herramientas</a></li>
                     <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === TRUE): ?>
                         <li><a href="perfil.php"><?php echo htmlspecialchars($_SESSION['username']); ?></a></li>
                     <?php else: ?>
@@ -162,11 +161,10 @@ $conexion->close();
 
     <footer>
         <p>No estas solo</p>
-        <a href="ayuda.html" class="footer-link-ayuda">Si necesitas ayuda apreta aquí</a>
+        <a href="ayuda.php" class="footer-link-ayuda">Si necesitas ayuda apreta aquí</a>
     </footer>
     
-    <script src="scripts.js"></script>
-    
+    <script src="../scripts.js"></script>
     <script>
     const registrosEmociones = <?php echo json_encode($registros_calendario); ?>; 
 
@@ -178,6 +176,7 @@ $conexion->close();
             days: ['Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá', 'Do']
         });
         
+        // Lógica para ocultar el popup al hacer clic fuera 
         $(document).on('click', function (e) {
             if (!$(e.target).closest('#mi-calendario-sentio').length && !$(e.target).closest('#emotion-popup').length) {
                 $('#emotion-popup').hide();

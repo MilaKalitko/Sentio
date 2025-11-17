@@ -1,11 +1,14 @@
 <?php
-include 'conexion.php'; 
 
+include '../includes/conexion.php';
+
+// Si no está logueado como admin o no es POST, redirigir
 if (!isset($_SESSION['loggedin']) || $_SESSION['rol'] !== 'admin' || $_SERVER["REQUEST_METHOD"] != "POST") {
-    header("Location: admin.php");
+    header("Location: ../paginas/admin.php");
     exit();
 }
 
+// Lógica de ELIMINACIÓN
 if (isset($_POST['id_emocion_eliminar'])) {
     $id_emocion = $_POST['id_emocion_eliminar'];
     
@@ -16,6 +19,7 @@ if (isset($_POST['id_emocion_eliminar'])) {
     $resultado_rutas = $stmt_rutas->get_result();
     $emocion_data = $resultado_rutas->fetch_assoc();
     $stmt_rutas->close();
+    
     $sql_delete = "DELETE FROM emociones_disponibles WHERE id_emocion = ?";
     $stmt_delete = $conexion->prepare($sql_delete);
     $stmt_delete->bind_param("i", $id_emocion);
@@ -48,13 +52,13 @@ if (isset($_POST['id_emocion_eliminar'])) {
     
     $stmt_delete->close();
     $conexion->close();
-    header("Location: gestion_emociones.php");
+    header("Location: ../paginas/gestion_emociones.php");
     exit();
 } 
 
 $nombre_emocion = $conexion->real_escape_string(trim($_POST['nombre']));
 $color_hex = $conexion->real_escape_string($_POST['color_hex']);
-$carpeta_destino = "assets/emociones/";
+$carpeta_destino = "../assets/emociones/";
 
 $archivos_subidos = [
     'carita' => $_FILES['archivo_carita'],
@@ -74,13 +78,14 @@ foreach ($archivos_subidos as $tipo => $archivo) {
     }
     
     $nombre_base = strtolower(str_replace(' ', '_', $nombre_emocion)) . "_{$tipo}.png";
+    $ruta_db = "assets/emociones/" . $nombre_base; 
     $ruta_final = $carpeta_destino . $nombre_base;
     
     if (!move_uploaded_file($archivo['tmp_name'], $ruta_final)) {
         $errores[] = "Fallo al mover el archivo de {$tipo} al destino.";
         continue;
     }
-    $rutas_finales[$tipo] = $ruta_final;
+    $rutas_finales[$tipo] = $ruta_db; 
 }
 
 // 2. Insertar en BD si no hay errores de archivo
@@ -117,6 +122,6 @@ if (!empty($errores)) {
 }
 
 $conexion->close();
-header("Location: gestion_emociones.php");
+header("Location: ../paginas/gestion_emociones.php");
 exit();
 ?>
