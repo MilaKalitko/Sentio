@@ -67,7 +67,7 @@ $resultado_emociones = $conexion->query($sql_select);
                                     <?php echo htmlspecialchars($emocion['color_hex']); ?>
                                 </td>
                                 <td class="table-cell table-cell-center">
-                                    <img src="<?php echo htmlspecialchars($emocion['archivo_carita']); ?>" alt="<?php echo htmlspecialchars($emocion['nombre']); ?>" class="emocion-preview-img">
+                                    <img src="<?php echo htmlspecialchars('../' . $emocion['archivo_carita']); ?>" alt="<?php echo htmlspecialchars($emocion['nombre']); ?>" class="emocion-preview-img">
                                 </td>
                                 <td class="table-cell table-cell-center">
                                     <form action="../procesadores/procesar_emocion_admin.php" method="POST" onsubmit="return confirm('¿Estás seguro de eliminar esta emoción?');">
