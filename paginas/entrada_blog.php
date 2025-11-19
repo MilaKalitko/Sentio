@@ -52,7 +52,7 @@ $usuario_logueado = isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === TR
 
     <footer>
     <p>No estas solo</p>
-    <a href="ayuda.html" class="footer-link-ayuda">Si necesitas ayuda apreta aquí</a> 
+    <a href="ayuda.php" class="footer-link-ayuda">Si necesitas ayuda apreta aquí</a> 
 </footer>
     
     <script src="../assets/js/postsData.js"></script> 
