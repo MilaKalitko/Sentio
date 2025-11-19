@@ -26,12 +26,15 @@ if (isset($_POST['id_emocion_eliminar'])) {
 
     try {
         if ($stmt_delete->execute()) {
-            if ($emocion_data) {
-                if (file_exists($emocion_data['archivo_carita'])) {
-                    unlink($emocion_data['archivo_carita']);
+             if ($emocion_data) {
+                $base_dir = __DIR__ . '/../';
+                $path_carita = $base_dir . $emocion_data['archivo_carita'];
+                $path_muneco = $base_dir . $emocion_data['archivo_muneco'];
+                if (file_exists($path_carita)) {
+                    unlink($path_carita);
                 }
-                if (file_exists($emocion_data['archivo_muneco'])) {
-                    unlink($emocion_data['archivo_muneco']);
+                if (file_exists($path_muneco)) {
+                    unlink($path_muneco);
                 }
             }
             
